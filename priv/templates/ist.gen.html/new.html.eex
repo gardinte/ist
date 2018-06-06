@@ -1,0 +1,25 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="card">
+          <header class="card-header">
+            <h2 class="card-header-title">
+              <%%= dgettext("<%= schema.plural %>", "New <%= schema.singular %>") %>
+            </h2>
+          </header>
+
+          <%%= render "_form.html", Map.put(assigns, :action, <%= schema.route_helper %>_path(@conn, :create)) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <span><%%= link dgettext("<%= schema.plural %>", "Back"), to: <%= schema.route_helper %>_path(@conn, :index) %></span>
+    </p>
+  </div>
+</footer>

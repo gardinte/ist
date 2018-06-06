@@ -1,0 +1,46 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#: lib/ist_web/templates/session/new.html.eex:14
+#: lib/ist_web/views/session_view.ex:11
+msgid "Email"
+msgstr ""
+
+#: lib/ist_web/templates/session/new.html.eex:26
+msgid "Login"
+msgstr ""
+
+#: lib/ist_web/templates/session/new.html.eex:19
+#: lib/ist_web/templates/session/new.html.eex:20
+msgid "Password"
+msgstr ""
+
+#: lib/ist_web/templates/session/new.html.eex:10
+msgid "Log In"
+msgstr ""
+
+#: lib/ist_web/controllers/session_controller.ex:27
+msgid "Invalid email/password combination"
+msgstr ""
+
+#: lib/ist_web/templates/layout/_menu.html.eex:43
+msgid "Logout"
+msgstr ""
+
+#: lib/ist_web/plugs/session_plug.ex:28
+msgid "You must be logged in."
+msgstr ""
+
+#: lib/ist_web/templates/session/new.html.eex:33
+msgid "Forgot password?"
+msgstr ""

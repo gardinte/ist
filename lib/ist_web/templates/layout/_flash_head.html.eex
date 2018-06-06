@@ -1,0 +1,8 @@
+<div class="hero-head">
+  <div class="container">
+    <p class="notification <%= flash_class(@type) %>">
+      <button class="delete" data-delete=".hero-head"></button>
+      <%= @message %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <nav class="breadcrumb is-primary is-small">
+    <ul>
+      <%= for breadcrumb <- @breadcrumbs do %>
+        <li <%= breadcrumb.active && {:safe, "class=\"is-active\""} %>>
+          <a href="<%= breadcrumb.url %>"><%= breadcrumb.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,17 @@
+<section class="hero is-medium is-light is-bold">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h1 class="title">
+        <%%= dgettext("<%= schema.plural %>", "Looks like you have no <%= schema.plural %>.") %>
+      </h1>
+
+      <h2 class="subtitle">
+        <%%= dgettext("<%= schema.plural %>", "Let's create one...") %>
+      </h2>
+
+      <p>
+        <%%= link dgettext("<%= schema.plural %>", "New <%= schema.singular %>"), to: <%= schema.route_helper %>_path(@conn, :new), class: "button is-primary is-large" %>
+      </p>
+    </div>
+  </div>
+</section>

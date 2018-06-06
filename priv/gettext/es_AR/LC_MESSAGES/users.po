@@ -1,0 +1,109 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es_AR\n"
+
+#: lib/ist_web/views/user_view.ex:35
+msgid "Are you sure?"
+msgstr "¿Está seguro de borrar este usuario?"
+
+#: lib/ist_web/templates/user/edit.html.eex:22
+#: lib/ist_web/templates/user/new.html.eex:22
+#: lib/ist_web/templates/user/show.html.eex:31
+msgid "Back"
+msgstr "Listado de usuarios"
+
+#: lib/ist_web/views/user_view.ex:32
+msgid "Delete"
+msgstr "Borrar usuario"
+
+#: lib/ist_web/templates/user/show.html.eex:22 lib/ist_web/views/user_view.ex:21
+msgid "Edit"
+msgstr "Editar usuario"
+
+#: lib/ist_web/controllers/user_controller.ex:95
+#: lib/ist_web/templates/user/edit.html.eex:8
+msgid "Edit user"
+msgstr "Editar usuario"
+
+#: lib/ist_web/templates/password/new.html.eex:18
+#: lib/ist_web/templates/password/new.html.eex:19
+#: lib/ist_web/templates/user/_form.html.eex:11
+#: lib/ist_web/templates/user/index.html.eex:16
+#: lib/ist_web/templates/user/show.html.eex:15
+msgid "Email"
+msgstr "Correo"
+
+#: lib/ist_web/templates/user/_form.html.eex:10
+#: lib/ist_web/templates/user/index.html.eex:15
+msgid "Lastname"
+msgstr "Apellido"
+
+#: lib/ist_web/templates/user/_form.html.eex:9
+#: lib/ist_web/templates/user/index.html.eex:14
+msgid "Name"
+msgstr "Nombre"
+
+#: lib/ist_web/controllers/user_controller.ex:81
+#: lib/ist_web/templates/user/index.html.eex:49
+#: lib/ist_web/templates/user/new.html.eex:8
+msgid "New user"
+msgstr "Nuevo usuario"
+
+#: lib/ist_web/templates/user/_form.html.eex:5
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr "Oops, algo salió mal, por favor verifique los errores debajo."
+
+#: lib/ist_web/views/user_view.ex:12
+msgid "Show"
+msgstr "Ver usuario"
+
+#: lib/ist_web/controllers/user_controller.ex:88
+#: lib/ist_web/templates/user/show.html.eex:6
+msgid "User"
+msgstr "Usuario"
+
+#: lib/ist_web/controllers/user_controller.ex:32
+msgid "User created successfully."
+msgstr "Usuario creado correctamete."
+
+#: lib/ist_web/controllers/user_controller.ex:76
+msgid "User deleted successfully."
+msgstr "Usuario eliminado correctamete."
+
+#: lib/ist_web/controllers/user_controller.ex:63
+msgid "User updated successfully."
+msgstr "Usuario actualizado correctamete."
+
+#: lib/ist_web/controllers/user_controller.ex:8
+#: lib/ist_web/templates/layout/_menu.html.eex:28
+#: lib/ist_web/templates/user/index.html.eex:6
+msgid "Users"
+msgstr "Usuarios"
+
+#: lib/ist_web/templates/password/edit.html.eex:13
+#: lib/ist_web/templates/password/edit.html.eex:14
+#: lib/ist_web/templates/user/_form.html.eex:12
+msgid "Password"
+msgstr "Contraseña"
+
+#: lib/ist_web/views/user_view.ex:51
+msgid "Create"
+msgstr "Crear nuevo usuario"
+
+#: lib/ist_web/views/user_view.ex:52
+msgid "Update"
+msgstr "Actualizar usuario"
+
+#: lib/ist_web/templates/password/edit.html.eex:18
+#: lib/ist_web/templates/password/edit.html.eex:19
+#: lib/ist_web/templates/user/_form.html.eex:13
+msgid "Password confirmation"
+msgstr "Confirmación"

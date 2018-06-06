@@ -1,0 +1,32 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h2 class="card-header-title">
+          <%%= dgettext("<%= schema.plural %>", "<%= schema.human_singular %>") %>
+        </h2>
+      </header>
+
+      <div class="card-content">
+        <ul>
+<%= for {k, _} <- schema.attrs do %>          <li>
+            <strong><%%= dgettext("<%= schema.plural %>", "<%= Phoenix.Naming.humanize(Atom.to_string(k)) %>") %></strong>:
+            <%%= @<%= schema.singular %>.<%= k %> %>
+          </li>
+<% end %>        </ul>
+      </div>
+
+      <footer class="card-footer">
+        <%%= link dgettext("<%= schema.plural %>", "Edit"), to: <%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "card-footer-item" %>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <span><%%= link dgettext("<%= schema.plural %>", "Back"), to: <%= schema.route_helper %>_path(@conn, :index) %></span>
+    </p>
+  </div>
+</footer>

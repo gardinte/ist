@@ -1,0 +1,39 @@
+<section class="hero is-light is-fullheight">
+  <%= render_flash @conn, "_flash_head.html" %>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="box">
+            <h2 class="title is-4 has-text-grey">
+              <%= dgettext("sessions", "Log In") %>
+            </h2>
+
+            <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
+              <%= input f, :email, dgettext("sessions", "Email"),
+                input_html: email_input_html(),
+                icons:      [left: "envelope"],
+                label_html: [class: "label is-sr"] %>
+
+              <%= input f, :password, dgettext("sessions", "Password"),
+                input_html: [class: "input is-medium", placeholder: dgettext("sessions", "Password")],
+                icons:      [left: "lock"],
+                label_html: [class: "label is-sr"] %>
+
+              <div class="field">
+                <p class="control has-text-centered">
+                  <%= submit dgettext("sessions", "Login"), class: "button is-dark is-medium" %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+
+          <p>
+            <%= link dgettext("sessions", "Forgot password?"), to: password_path(@conn, :new) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,135 @@
+{
+  "lib/ist_web/channels/*_channel.ex": {
+    "type": "channel",
+    "dispatch": "mix test test/ist_web/channels/{}_channel_test.exs",
+    "alternate": "test/ist_web/channels/{}_channel_test.exs"
+  },
+
+  "lib/ist_web/controllers/*_controller.ex": {
+    "type": "controller",
+    "dispatch": "mix test test/ist_web/controllers/{}_controller_test.exs",
+    "alternate": "test/ist_web/controllers/{}_controller_test.exs"
+  },
+
+  "lib/ist_web/views/*_view.ex": {
+    "type": "view",
+    "dispatch": "mix test test/ist_web/views/{}_view_test.exs",
+    "alternate": "test/ist_web/views/{}_view_test.exs"
+  },
+
+  "lib/ist_web/views/*_helpers.ex": {
+    "type": "helper",
+    "dispatch": "mix test test/ist_web/views/{}_helpers_test.exs",
+    "alternate": "test/ist_web/views/{}_helpers_test.exs"
+  },
+
+  "lib/ist_web/plugs/*_plug.ex": {
+    "type": "plug",
+    "dispatch": "mix test test/ist_web/plugs/{}_plug_test.exs",
+    "alternate": "test/ist_web/plugs/{}_plug_test.exs"
+  },
+
+  "priv/gettext/*.po": {
+    "type": "locale"
+  },
+
+  "test/ist_web/channels/*_channel_test.exs": {
+    "type": "tchannel",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist_web/channels/{}_channel.ex"
+  },
+
+  "test/ist_web/controllers/*_controller_test.exs": {
+    "type": "tcontroller",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist_web/controllers/{}_controller.ex"
+  },
+
+  "test/ist_web/views/*_view_test.exs": {
+    "type": "tview",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist_web/views/{}_view.ex"
+  },
+
+  "test/ist_web/views/*_helpers_test.exs": {
+    "type": "thelper",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist_web/views/{}_helpers.ex"
+  },
+
+  "test/ist_web/plugs/*_plug_test.exs": {
+    "type": "tplug",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist_web/plugs/{}_plug.ex"
+  },
+
+  "test/ist/*_test.exs": {
+    "type": "tapp",
+    "dispatch": "mix test {file}",
+    "alternate": "lib/ist/{}.ex"
+  },
+
+  "test/support/*.ex": {
+    "type": "tsupport"
+  },
+
+  "lib/ist_web/templates/*.eex": {
+    "type": "template"
+  },
+
+  "lib/ist_web/router.ex": {
+    "type": "router"
+  },
+
+  "assets/css/app.scss": {
+    "type": "stylesheet"
+  },
+
+  "assets/css/*": {
+    "type": "stylesheet"
+  },
+
+  "assets/js/app.js": {
+    "type": "javascript",
+    "dispatch": "npm -s --prefix assets run lint {file}"
+  },
+
+  "assets/js/*": {
+    "type": "javascript",
+    "dispatch": "npm -s --prefix assets run lint {file}"
+  },
+
+  "config/*.exs": {
+    "type": "environment"
+  },
+
+  "lib/ist.ex": {
+    "type": "app"
+  },
+
+  "lib/ist/*.ex": {
+    "type": "app",
+    "dispatch": "mix test test/ist/{}_test.exs",
+    "alternate": "test/ist/{}_test.exs"
+  },
+
+  "lib/ist_web.ex": {
+    "type": "web"
+  },
+
+  "lib/ist_web/*": {
+    "type": "web"
+  },
+
+  "priv/repo/seeds.exs": {
+    "type": "seed"
+  },
+
+  "priv/repo/migrations/*.exs": {
+    "type": "migration"
+  },
+
+  "mix.exs": {
+    "type": "mix"
+  }
+}

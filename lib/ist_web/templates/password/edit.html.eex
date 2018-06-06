@@ -1,0 +1,38 @@
+<section class="hero is-light is-fullheight">
+  <%= render_flash @conn, "_flash_head.html" %>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="box">
+          <h2 class="title is-4 has-text-grey">
+            <%= dgettext("passwords", "Enter a new password") %>
+          </h2>
+
+          <%= form_for @changeset, password_path(@conn, :update, @token), [as: :user, method: :patch], fn f -> %>
+            <%= input f, :password, dgettext("users", "Password"),
+              input_html: [autofocus: true, class: "input is-medium", placeholder: dgettext("users", "Password")],
+              icons:      [left: "lock"],
+              label_html: [class: "label is-sr"] %>
+
+            <%= input f, :password_confirmation, dgettext("users", "Password confirmation"),
+              input_html: [class: "input is-medium", placeholder: dgettext("users", "Password confirmation")],
+              icons:      [left: "check"],
+              label_html: [class: "label is-sr"] %>
+
+            <div class="field">
+              <p>
+                <%= submit dgettext("passwords", "Change password"), class: "button is-dark is-medium" %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+
+        <p>
+          <%= dgettext("passwords", "Nevermind") %>,
+          <%= link dgettext("passwords", "go back to login"), to: session_path(@conn, :new) %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

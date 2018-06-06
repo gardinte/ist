@@ -1,0 +1,33 @@
+.breadcrumb.is-primary {
+  margin-top: 0.75em;
+  padding: 0.5em 0em;
+
+  @include touch() {
+    padding: 0.5em 0.75em;
+  }
+}
+
+// iOS Fix (see https://github.com/jgthms/bulma/issues/727)
+.card-footer {
+  button.button.card-footer-item {
+    display: inline-block;
+  }
+}
+
+.footer.is-primary {
+  padding: 1em 1em 1.5em;
+}
+
+.navbar-item.has-icon {
+  .icon {
+    margin: 0em .25em;
+  }
+}
+
+.section.flash-message {
+  padding: 1em 0.5em 0em 0.5em;
+}
+
+.section.is-primary {
+  padding: 1em 0.5em;
+}

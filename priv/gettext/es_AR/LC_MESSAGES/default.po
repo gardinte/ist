@@ -1,0 +1,23 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es_AR\n"
+
+#: lib/ist/notifications/email.ex:20 lib/ist_web/templates/layout/app.html.eex:9
+msgid "Gardinte"
+msgstr "Gardinte"
+
+#: lib/ist_web/controllers/session_controller.ex:35
+msgid "See you soon!"
+msgstr "Hasta la próxima..."
+
+#: lib/ist_web/controllers/session_controller.ex:19
+msgid "Welcome!"
+msgstr "¡Bienvenido!"

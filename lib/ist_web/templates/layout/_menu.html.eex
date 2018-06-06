@@ -1,0 +1,53 @@
+<nav class="navbar has-shadow is-light is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      <%= link to: root_path(@conn, :index), class: "navbar-item is-hoverable" do %>
+        <span class="icon">
+          <i class="fas fa-home" aria-hidden="true"></i>
+        </span>
+      <% end %>
+
+      <div class="navbar-burger" data-target="#main-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="main-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">
+            <span class="icon">
+              <i class="fas fa-cog" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div id="config-dropdown" class="navbar-dropdown">
+            <%= menu_item @conn, to: user_path(@conn, :index) do %>
+              <%= dgettext("users", "Users") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">
+            <span class="icon">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div id="user-dropdown" class="navbar-dropdown is-right">
+            <%= link to: session_path(@conn, :delete), method: :delete, class: "navbar-item has-icon" do %>
+              <%= dgettext("sessions", "Logout") %>
+              <span class="icon">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,21 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="card-content">
+    <%= if @changeset.action do %>
+      <div class="notification is-danger">
+        <p><%= dgettext("users", "Oops, something went wrong! Please check the errors below.") %></p>
+      </div>
+    <% end %>
+
+    <%= input f, :name,                  dgettext("users", "Name"), input_html: [autofocus: true] %>
+    <%= input f, :lastname,              dgettext("users", "Lastname") %>
+    <%= input f, :email,                 dgettext("users", "Email") %>
+    <%= input f, :password,              dgettext("users", "Password") %>
+    <%= input f, :password_confirmation, dgettext("users", "Password confirmation") %>
+
+    <%= lock_version_input f, assigns[:user] %>
+  </div>
+
+  <footer class="card-footer">
+    <%= submit_button assigns[:user] %>
+  </footer>
+<% end %>

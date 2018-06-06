@@ -1,0 +1,42 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es_AR\n"
+
+#: lib/ist/notifications/email.ex:10
+msgid "Password reset"
+msgstr "Restablecer contraseña"
+
+#: lib/ist_web/templates/email/password_reset.html.eex:4
+msgid "Follow this link to reset your password"
+msgstr "Haz clic en el siguiente enlace para hacer el cambio"
+
+#: lib/ist_web/templates/email/password_reset.text.eex:4
+msgid "Go to this address to reset your password"
+msgstr "Ingresa en esta dirección para hacer el cambio"
+
+#: lib/ist_web/templates/email/password_reset.html.eex:1
+#: lib/ist_web/templates/email/password_reset.text.eex:1
+msgid "Hello %{name},"
+msgstr "Hola %{name},"
+
+#: lib/ist_web/templates/email/password_reset.html.eex:10
+#: lib/ist_web/templates/email/password_reset.text.eex:10
+msgid "If you didn't ask for this you can safely disregard this message"
+msgstr "Si no pediste este cambio, puedes ignorar este correo"
+
+#: lib/ist_web/templates/email/password_reset.html.eex:7
+msgid "Reset password"
+msgstr "Cambiar contraseña"
+
+#: lib/ist_web/templates/email/password_reset.html.eex:3
+#: lib/ist_web/templates/email/password_reset.text.eex:3
+msgid "Someone requested a password reset for your user account"
+msgstr "Alguien ha pedido modificar la contraseña de tu cuenta"

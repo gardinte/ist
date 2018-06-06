@@ -1,0 +1,8 @@
+<section class="section flash-message">
+  <div class="container">
+    <p class="notification <%= flash_class(@type) %>">
+      <button class="delete" data-delete=".flash-message"></button>
+      <%= @message %>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="<%= locale() %>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      500 :: <%= dgettext("error_pages", "Internal server error") %>
+    </title>
+    <link rel="stylesheet" href="<%= static_path(IstWeb.Endpoint, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <section class="hero is-medium is-danger is-bold has-text-centered">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            <%= dgettext("error_pages", "Sorry, something went wrong") %>
+          </h1>
+          <h2 class="subtitle">
+            <%= dgettext("error_pages", "The error was logged, we will fix it soon!") %>
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="has-text-centered is-size-5">
+          <%= link dgettext("error_pages", "Go to start"), to: root_path(IstWeb.Endpoint, :index) %>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
