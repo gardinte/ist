@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "array-bracket-spacing": ["error", "never"],
+    "indent": ["error", 2],
+    "keyword-spacing": ["error", {"before": true, "after": true}],
+    "linebreak-style": ["error", "unix"],
+    "no-console": "warn",
+    "no-trailing-spaces": "error",
+    "no-var": "error",
+    "object-curly-spacing": ["error", "never"],
+    "prefer-const": "warn",
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "space-before-function-paren": ["error", "always"],
+    "space-infix-ops": "error",
+    "spaced-comment": ["error", "always"]
+  }
+}
