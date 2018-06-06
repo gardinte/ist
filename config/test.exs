@@ -18,8 +18,8 @@ config :logger, level: :warn
 # Configure your database
 config :ist, Ist.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "ist",
-  password: "ist",
+  username: "postgres",
+  password: "postgres",
   database: "ist_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
