@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+set -eu
+
+ROLE='production'
+HOST='gardinte'
+REL_DIR='.deliver/releases'
+
+while getopts ":r:h:" opt; do
+  case $opt in
+    r)  ROLE="$OPTARG"                                             ;;
+    h)  HOST="$OPTARG"                                             ;;
+    :)  echo "Option -$OPTARG requires an argument." >&2 && exit 1 ;;
+    \?) echo "Invalid option -$OPTARG"               >&2 && exit 1 ;;
+  esac
+done
+
+mkdir -p $REL_DIR
+
+if [ $(ls -A $REL_DIR) ]; then
+  rm -f $REL_DIR/*
+fi
+
+mix edeliver build release
+mix edeliver deploy release to $ROLE
+ssh $HOST "sudo systemctl start elixir_app"
+mix edeliver migrate $ROLE

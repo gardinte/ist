@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+set -eu
+
+ROLE='production'
+HOST='gardinte'
+REL_DIR='.deliver/releases'
+
+while getopts ":r:h:" opt; do
+  case $opt in
+    r)  ROLE="$OPTARG"                                             ;;
+    h)  HOST="$OPTARG"                                             ;;
+    :)  echo "Option -$OPTARG requires an argument." >&2 && exit 1 ;;
+    \?) echo "Invalid option -$OPTARG"               >&2 && exit 1 ;;
+  esac
+done
+
+mkdir -p $REL_DIR
+
+if [ $(ls -A $REL_DIR) ]; then
+  rm -f $REL_DIR/*
+fi
+
+FROM=`
+  mix edeliver version $ROLE                           |
+  grep -Po 'response: .*\+\K(.*)'                      |
+  sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" |
+  tr -d '[:cntrl:]'
+`
+
+if [[ ! -z $FROM ]]; then
+  mix edeliver build upgrade --from=$FROM
+  mix edeliver deploy upgrade to $ROLE
+  mix edeliver migrate $ROLE
+else
+  echo "Deployed version was not found!" && exit 1
+fi
