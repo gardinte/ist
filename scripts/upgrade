@@ -3,7 +3,7 @@
 set -eu
 
 ROLE='production'
-HOST='gardinte'
+HOST='gardinte.com'
 REL_DIR='.deliver/releases'
 
 while getopts ":r:h:" opt; do

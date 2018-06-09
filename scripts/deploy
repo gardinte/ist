@@ -3,7 +3,8 @@
 set -eu
 
 ROLE='production'
-HOST='gardinte'
+USER='deployer'
+HOST='gardinte.com'
 REL_DIR='.deliver/releases'
 
 while getopts ":r:h:" opt; do
@@ -23,5 +24,5 @@ fi
 
 mix edeliver build release
 mix edeliver deploy release to $ROLE
-ssh $HOST "sudo systemctl start elixir_app"
+ssh $USER@$HOST "sudo systemctl start elixir_app"
 mix edeliver migrate $ROLE
