@@ -3,7 +3,7 @@
 APP="ist"
 AUTO_VERSION="git-revision+branch-unless-master"
 
-BUILD_HOST="sandbox"
+BUILD_HOST="gardinte.com"
 BUILD_USER="deployer"
 BUILD_AT="/tmp/edeliver/$APP/builds"
 
