@@ -1,0 +1,22 @@
+#!/bin/sh
+
+eslint="assets/node_modules/.bin/eslint"
+files=$(git diff --cached --name-only | grep '\.js$')
+
+if [[ $files = "" ]] ; then
+  exit 0
+fi
+
+exit_status=0
+
+for file in ${files}; do
+  git show :$file | $eslint $file
+  if [[ $? != 0 ]] ; then
+    exit_status=1
+  fi
+done;
+
+if [[ $exit_status != 0 ]] ; then
+  echo "ESLint failed, git commit aborted!"
+  exit $exit_status
+fi
