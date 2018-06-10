@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+set -eu
+
+ln -sf $RELEASE_ROOT_DIR/lib/$REL_NAME-$REL_VSN/priv/static $RELEASE_ROOT_DIR/static
