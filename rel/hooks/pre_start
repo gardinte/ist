@@ -2,4 +2,10 @@
 
 set -eu
 
-ln -sf $RELEASE_ROOT_DIR/lib/$REL_NAME-$REL_VSN/priv/static $RELEASE_ROOT_DIR/static
+LINK=$RELEASE_ROOT_DIR/current_static
+
+if [ -L $LINK ]; then
+  rm $LINK
+fi
+
+ln -s $REL_LIB_DIR/$REL_NAME-$REL_VSN/priv/static $LINK
