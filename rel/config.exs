@@ -18,6 +18,7 @@ environment :prod do
   set include_src: false
   set include_system_libs: true
   set cookie: :"V$lO>ONPuh3RgS,*Q1?|j;lz:TFiy]iVni|n[Op$AmSjb5/RG85v.u@]LaU?%VkR"
+  set post_start_hook: "rel/hooks/post_start"
 end
 
 release :ist do
