@@ -38,3 +38,19 @@ pre_erlang_clean_compile() {
     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
   "
 }
+
+# "Taken" from https://github.com/edeliver/edeliver/wiki/Symlink-static-for-nginx-or-apache
+post_erlang_update() {
+  symlink_static
+}
+
+post_upgrade_release() {
+  symlink_static
+}
+
+symlink_static(){
+  status "Running post update symlink!"
+  __remote "
+    ln -sfn $DELIVER_TO/$APP/lib/$APP$RELEASE-$VERSION/priv/static $DELIVER_TO/$APP/static
+  "
+}
