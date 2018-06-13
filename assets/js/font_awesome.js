@@ -30,4 +30,4 @@ fontawesome.library.add([
 
 // Needed only because mutation observer on FA watch for body changes
 // and Turbolinks replaces it
-document.addEventListener('turbolinks:load',   fontawesome.dom.i2svg)
+document.addEventListener('turbolinks:load', fontawesome.dom.i2svg)
