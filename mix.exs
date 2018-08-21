@@ -49,7 +49,7 @@ defmodule Ist.Mixfile do
       {:bamboo_smtp, ">= 1.5.0"},
       {:paper_trail, ">= 0.8.0"},
       {:edeliver, ">= 1.6.0"},
-      {:distillery, ">= 2.0.0", runtime: false, warn_missing: false}
+      {:distillery, ">= 2.0.0"}
     ]
   end
 
