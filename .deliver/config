@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 APP="ist"
-AUTO_VERSION="build-date+git-revision+branch-unless-master"
+AUTO_VERSION="git-revision+branch-unless-master"
 
 BUILD_HOST="gardinte.com"
 BUILD_USER="deployer"
