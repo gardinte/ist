@@ -5,7 +5,7 @@ defmodule Ist.Mixfile do
     [
       app: :ist,
       version: "0.0.1",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -34,10 +34,10 @@ defmodule Ist.Mixfile do
   defp deps do
     [
       {:phoenix, ">= 1.3.0"},
-      {:phoenix_pubsub, ">= 1.0.0"},
+      {:phoenix_pubsub, ">= 1.1.0"},
       {:phoenix_ecto, ">= 3.3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, ">= 2.11.0"},
+      {:phoenix_html, ">= 2.12.0"},
       {:phoenix_live_reload, ">= 1.1.0", only: :dev},
       {:gettext, ">= 0.15.0"},
       {:cowboy, ">= 1.1.0"},
@@ -48,9 +48,8 @@ defmodule Ist.Mixfile do
       {:bamboo, ">= 1.0.0"},
       {:bamboo_smtp, ">= 1.5.0"},
       {:paper_trail, ">= 0.8.0"},
-      {:edeliver, ">= 1.5.0"},
-      {:pid_file, ">= 0.1.0"},
-      {:distillery, ">= 1.5.0", runtime: false, warn_missing: false}
+      {:edeliver, ">= 1.6.0"},
+      {:distillery, ">= 2.0.0", runtime: false, warn_missing: false}
     ]
   end
 
