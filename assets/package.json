@@ -7,25 +7,25 @@
     "lint": "eslint --quiet"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.0",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "bulma": "^0.7.1",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
-    "turbolinks": "^5.1.1"
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^0.28.11",
-    "eslint": "^5.0.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.4.0",
     "mini-css-extract-plugin": "^0.4.1",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.8"
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   }
 }
