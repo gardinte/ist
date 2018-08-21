@@ -24,8 +24,7 @@ fi
 FROM=`
   mix edeliver version $ROLE                           |
   grep -Po "response: .*\+\K([^']*)"                   |
-  sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" |
-  tr -d '[:cntrl:]'
+  sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
 `
 
 if [[ ! -z $FROM ]]; then
