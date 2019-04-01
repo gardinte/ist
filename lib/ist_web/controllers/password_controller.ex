@@ -15,7 +15,7 @@ defmodule IstWeb.PasswordController do
 
         conn
         |> put_flash(:info, dgettext("passwords", "Password reset instructions sent"))
-        |> redirect(to: root_path(conn, :index))
+        |> redirect(to: Routes.root_path(conn, :index))
 
       nil ->
         conn
@@ -43,7 +43,7 @@ defmodule IstWeb.PasswordController do
           {:ok, _} ->
             conn
             |> put_flash(:info, dgettext("passwords", "Password updated successfully"))
-            |> redirect(to: root_path(conn, :index))
+            |> redirect(to: Routes.root_path(conn, :index))
 
           {:error, %Ecto.Changeset{} = changeset} ->
             render(conn, "edit.html", token: token, changeset: changeset)
@@ -57,6 +57,6 @@ defmodule IstWeb.PasswordController do
   defp handle_invalid_token(conn) do
     conn
     |> put_flash(:error, dgettext("passwords", "Token invalid or expired"))
-    |> redirect(to: root_path(conn, :index))
+    |> redirect(to: Routes.root_path(conn, :index))
   end
 end

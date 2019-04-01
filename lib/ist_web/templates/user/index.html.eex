@@ -46,7 +46,7 @@
 <footer class="footer is-primary">
   <div class="container">
     <p>
-      <span><%= link dgettext("users", "New user"), to: user_path(@conn, :new) %></span>
+      <span><%= link dgettext("users", "New user"), to: Routes.user_path(@conn, :new) %></span>
     </p>
   </div>
 </footer>

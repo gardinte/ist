@@ -30,7 +30,7 @@ defmodule IstWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, dgettext("users", "User created successfully."))
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: Routes.user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -61,7 +61,7 @@ defmodule IstWeb.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, dgettext("users", "User updated successfully."))
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: Routes.user_path(conn, :show, user))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
@@ -74,26 +74,26 @@ defmodule IstWeb.UserController do
 
     conn
     |> put_flash(:info, dgettext("users", "User deleted successfully."))
-    |> redirect(to: user_path(conn, :index))
+    |> redirect(to: Routes.user_path(conn, :index))
   end
 
   defp put_new_breadcrumb(conn) do
     name = dgettext("users", "New user")
-    url = user_path(conn, :new)
+    url = Routes.user_path(conn, :new)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_show_breadcrumb(conn, user) do
     name = dgettext("users", "User")
-    url = user_path(conn, :show, user)
+    url = Routes.user_path(conn, :show, user)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_edit_breadcrumb(conn, user) do
     name = dgettext("users", "Edit user")
-    url = user_path(conn, :edit, user)
+    url = Routes.user_path(conn, :edit, user)
 
     conn |> put_breadcrumb(name, url)
   end

@@ -8,7 +8,7 @@ defmodule IstWeb.PasswordControllerTest do
 
   describe "new password" do
     test "renders new", %{conn: conn} do
-      conn = get(conn, password_path(conn, :new))
+      conn = get(conn, Routes.password_path(conn, :new))
 
       assert html_response(conn, 200) =~ ~r/Forgot your password/
     end
@@ -20,9 +20,9 @@ defmodule IstWeb.PasswordControllerTest do
 
     test "sends instructions when email exist", %{conn: conn} do
       {:ok, user, _} = fixture(:user)
-      conn = post(conn, password_path(conn, :create), user: %{email: user.email})
+      conn = post(conn, Routes.password_path(conn, :create), user: %{email: user.email})
 
-      assert redirected_to(conn) == root_path(conn, :index)
+      assert redirected_to(conn) == Routes.root_path(conn, :index)
 
       user = Repo.get(User, user.id)
 
@@ -30,7 +30,7 @@ defmodule IstWeb.PasswordControllerTest do
     end
 
     test "renders errors when email does not exist", %{conn: conn} do
-      conn = post(conn, password_path(conn, :create), user: %{email: "wrong"})
+      conn = post(conn, Routes.password_path(conn, :create), user: %{email: "wrong"})
 
       assert html_response(conn, 200)
       assert get_flash(conn, :error) =~ ~r/Email not found/
@@ -40,15 +40,15 @@ defmodule IstWeb.PasswordControllerTest do
   describe "edit password" do
     test "renders edit when valid token", %{conn: conn} do
       user = user_with_password_reset_token()
-      conn = get(conn, password_path(conn, :edit, user.password_reset_token))
+      conn = get(conn, Routes.password_path(conn, :edit, user.password_reset_token))
 
       assert html_response(conn, 200) =~ ~r/Enter a new password/
     end
 
     test "redirects when invalid token", %{conn: conn} do
-      conn = get(conn, password_path(conn, :edit, "invalid-token"))
+      conn = get(conn, Routes.password_path(conn, :edit, "invalid-token"))
 
-      assert redirected_to(conn) == root_path(conn, :index)
+      assert redirected_to(conn) == Routes.root_path(conn, :index)
     end
   end
 
@@ -60,9 +60,9 @@ defmodule IstWeb.PasswordControllerTest do
       user = user_with_password_reset_token()
 
       conn =
-        put(conn, password_path(conn, :update, user.password_reset_token), user: @valid_attrs)
+        put(conn, Routes.password_path(conn, :update, user.password_reset_token), user: @valid_attrs)
 
-      assert redirected_to(conn) == root_path(conn, :index)
+      assert redirected_to(conn) == Routes.root_path(conn, :index)
 
       user = Repo.get(User, user.id)
 
@@ -73,7 +73,7 @@ defmodule IstWeb.PasswordControllerTest do
       user = user_with_password_reset_token()
 
       conn =
-        put(conn, password_path(conn, :update, user.password_reset_token), user: @invalid_attrs)
+        put(conn, Routes.password_path(conn, :update, user.password_reset_token), user: @invalid_attrs)
 
       assert html_response(conn, 200)
 
@@ -83,9 +83,9 @@ defmodule IstWeb.PasswordControllerTest do
     end
 
     test "redirects when invalid token", %{conn: conn} do
-      conn = put(conn, password_path(conn, :update, "invalid-token"), user: @valid_attrs)
+      conn = put(conn, Routes.password_path(conn, :update, "invalid-token"), user: @valid_attrs)
 
-      assert redirected_to(conn) == root_path(conn, :index)
+      assert redirected_to(conn) == Routes.root_path(conn, :index)
     end
   end
 

@@ -10,7 +10,7 @@
       </h2>
 
       <p>
-        <%%= link dgettext("<%= schema.plural %>", "New <%= schema.singular %>"), to: <%= schema.route_helper %>_path(@conn, :new), class: "button is-primary is-large" %>
+        <%%= link dgettext("<%= schema.plural %>", "New <%= schema.singular %>"), to: Routes.<%= schema.route_helper %>_path(@conn, :new), class: "button is-primary is-large" %>
       </p>
     </div>
   </div>

@@ -5,7 +5,7 @@ defmodule IstWeb.SessionController do
 
   def new(%{assigns: %{current_session: session}} = conn, _params)
       when is_map(session) do
-    redirect(conn, to: root_path(conn, :index))
+    redirect(conn, to: Routes.root_path(conn, :index))
   end
 
   def new(conn, _params) do
@@ -33,11 +33,11 @@ defmodule IstWeb.SessionController do
     conn
     |> clear_session()
     |> put_flash(:info, gettext("See you soon!"))
-    |> redirect(to: root_path(conn, :index))
+    |> redirect(to: Routes.root_path(conn, :index))
   end
 
   defp redirect_to_next_path(conn) do
-    path = get_session(conn, :previous_url) || root_path(conn, :index)
+    path = get_session(conn, :previous_url) || Routes.root_path(conn, :index)
 
     conn
     |> delete_session(:previous_url)

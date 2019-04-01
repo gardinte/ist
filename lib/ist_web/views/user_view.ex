@@ -10,7 +10,7 @@ defmodule IstWeb.UserView do
     icon_link(
       "eye",
       title: dgettext("users", "Show"),
-      to: user_path(conn, :show, user),
+      to: Routes.user_path(conn, :show, user),
       class: "button is-small is-outlined is-hidden-mobile"
     )
   end
@@ -19,7 +19,7 @@ defmodule IstWeb.UserView do
     icon_link(
       "pencil-alt",
       title: dgettext("users", "Edit"),
-      to: user_path(conn, :edit, user),
+      to: Routes.user_path(conn, :edit, user),
       class: "button is-small is-outlined is-hidden-mobile"
     )
   end
@@ -30,7 +30,7 @@ defmodule IstWeb.UserView do
     icon_link(
       "trash",
       title: dgettext("users", "Delete"),
-      to: user_path(conn, :delete, user),
+      to: Routes.user_path(conn, :delete, user),
       method: :delete,
       data: [confirm: dgettext("users", "Are you sure?")],
       class: "button is-small is-danger is-outlined"

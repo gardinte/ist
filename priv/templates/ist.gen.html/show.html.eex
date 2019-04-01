@@ -17,7 +17,7 @@
       </div>
 
       <footer class="card-footer">
-        <%%= link dgettext("<%= schema.plural %>", "Edit"), to: <%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "card-footer-item" %>
+        <%%= link dgettext("<%= schema.plural %>", "Edit"), to: Routes.<%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "card-footer-item" %>
       </footer>
     </div>
   </div>
@@ -26,7 +26,7 @@
 <footer class="footer is-primary">
   <div class="container">
     <p>
-      <span><%%= link dgettext("<%= schema.plural %>", "Back"), to: <%= schema.route_helper %>_path(@conn, :index) %></span>
+      <span><%%= link dgettext("<%= schema.plural %>", "Back"), to: Routes.<%= schema.route_helper %>_path(@conn, :index) %></span>
     </p>
   </div>
 </footer>

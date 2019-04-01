@@ -4,7 +4,7 @@ defmodule IstWeb.SessionPlug do
   import IstWeb.Gettext
 
   alias Ist.Accounts
-  alias IstWeb.Router.Helpers
+  alias IstWeb.Router.Helpers, as: Routes
 
   def fetch_current_session(%{assigns: %{current_session: session}} = conn, _opts)
       when is_map(session),
@@ -26,7 +26,7 @@ defmodule IstWeb.SessionPlug do
     conn
     |> put_return_path()
     |> put_flash(:error, dgettext("sessions", "You must be logged in."))
-    |> redirect(to: Helpers.session_path(conn, :new))
+    |> redirect(to: Routes.session_path(conn, :new))
     |> halt()
   end
 

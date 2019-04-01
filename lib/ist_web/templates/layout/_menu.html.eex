@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow is-light is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
-      <%= link to: root_path(@conn, :index), class: "navbar-item is-hoverable" do %>
+      <%= link to: Routes.root_path(@conn, :index), class: "navbar-item is-hoverable" do %>
         <span class="icon">
           <i class="fas fa-home" aria-hidden="true"></i>
         </span>
@@ -24,7 +24,7 @@
           </div>
 
           <div id="config-dropdown" class="navbar-dropdown">
-            <%= menu_item @conn, to: user_path(@conn, :index) do %>
+            <%= menu_item @conn, to: Routes.user_path(@conn, :index) do %>
               <%= dgettext("users", "Users") %>
             <% end %>
           </div>
@@ -39,7 +39,7 @@
           </div>
 
           <div id="user-dropdown" class="navbar-dropdown is-right">
-            <%= link to: session_path(@conn, :delete), method: :delete, class: "navbar-item has-icon" do %>
+            <%= link to: Routes.session_path(@conn, :delete), method: :delete, class: "navbar-item has-icon" do %>
               <%= dgettext("sessions", "Logout") %>
               <span class="icon">
                 <i class="fas fa-sign-out-alt" aria-hidden="true"></i>

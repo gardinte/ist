@@ -42,7 +42,7 @@
 <footer class="footer is-primary">
   <div class="container">
     <p>
-      <span><%%= link dgettext("<%= schema.plural %>", "New <%= schema.singular %>"), to: <%= schema.route_helper %>_path(@conn, :new) %></span>
+      <span><%%= link dgettext("<%= schema.plural %>", "New <%= schema.singular %>"), to: Routes.<%= schema.route_helper %>_path(@conn, :new) %></span>
     </p>
   </div>
 </footer>

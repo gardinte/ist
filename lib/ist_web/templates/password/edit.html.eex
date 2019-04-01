@@ -9,7 +9,7 @@
             <%= dgettext("passwords", "Enter a new password") %>
           </h2>
 
-          <%= form_for @changeset, password_path(@conn, :update, @token), [as: :user, method: :patch], fn f -> %>
+          <%= form_for @changeset, Routes.password_path(@conn, :update, @token), [as: :user, method: :patch], fn f -> %>
             <%= input f, :password, dgettext("users", "Password"),
               input_html: [autofocus: true, class: "input is-medium", placeholder: dgettext("users", "Password")],
               icons:      [left: "lock"],
@@ -30,7 +30,7 @@
 
         <p>
           <%= dgettext("passwords", "Nevermind") %>,
-          <%= link dgettext("passwords", "go back to login"), to: session_path(@conn, :new) %>
+          <%= link dgettext("passwords", "go back to login"), to: Routes.session_path(@conn, :new) %>
         </p>
       </div>
     </div>

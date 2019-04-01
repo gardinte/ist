@@ -17,9 +17,10 @@ defmodule IstWeb.ConnCase do
 
   using do
     quote do
+      alias IstWeb.Router.Helpers, as: Routes
+
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import IstWeb.Router.Helpers
 
       # The default endpoint for testing
       @endpoint IstWeb.Endpoint

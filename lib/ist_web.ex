@@ -19,9 +19,9 @@ defmodule IstWeb do
 
   def controller do
     quote do
+      alias IstWeb.Router.Helpers, as: Routes
       use Phoenix.Controller, namespace: IstWeb
       import Plug.Conn
-      import IstWeb.Router.Helpers
       import IstWeb.Gettext
       import IstWeb.BreadcrumbPlug, only: [put_breadcrumb: 2, put_breadcrumb: 3]
       import IstWeb.SessionPlug, only: [authenticate: 2]
@@ -30,6 +30,8 @@ defmodule IstWeb do
 
   def view do
     quote do
+      alias IstWeb.Router.Helpers, as: Routes
+
       use Phoenix.View,
         root: "lib/ist_web/templates",
         namespace: IstWeb
@@ -40,7 +42,6 @@ defmodule IstWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import IstWeb.Router.Helpers
       import IstWeb.ErrorHelpers
       import IstWeb.InputHelpers
       import IstWeb.LinkHelpers

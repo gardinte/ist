@@ -8,7 +8,7 @@
     <title>
       404 :: <%= dgettext("error_pages", "Page not found") %>
     </title>
-    <link rel="stylesheet" href="<%= static_path(IstWeb.Endpoint, "/css/app.css") %>">
+    <link rel="stylesheet" href="<%= Routes.static_path(IstWeb.Endpoint, "/css/app.css") %>">
   </head>
 
   <body>
@@ -28,7 +28,7 @@
     <section class="section">
       <div class="container">
         <p class="has-text-centered is-size-5">
-          <%= link dgettext("error_pages", "Go to start"), to: root_path(IstWeb.Endpoint, :index) %>
+          <%= link dgettext("error_pages", "Go to start"), to: Routes.root_path(IstWeb.Endpoint, :index) %>
         </p>
       </div>
     </section>

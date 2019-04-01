@@ -19,7 +19,7 @@
       </div>
 
       <footer class="card-footer">
-        <%= link dgettext("users", "Edit"), to: user_path(@conn, :edit, @user), class: "card-footer-item" %>
+        <%= link dgettext("users", "Edit"), to: Routes.user_path(@conn, :edit, @user), class: "card-footer-item" %>
       </footer>
     </div>
   </div>
@@ -28,7 +28,7 @@
 <footer class="footer is-primary">
   <div class="container">
     <p>
-      <span><%= link dgettext("users", "Back"), to: user_path(@conn, :index) %></span>
+      <span><%= link dgettext("users", "Back"), to: Routes.user_path(@conn, :index) %></span>
     </p>
   </div>
 </footer>

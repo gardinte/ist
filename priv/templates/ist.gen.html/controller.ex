@@ -30,7 +30,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
       {:ok, <%= schema.singular %>} ->
         conn
         |> put_flash(:info, dgettext("<%= schema.plural %>", "<%= schema.human_singular %> created successfully."))
-        |> redirect(to: <%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>))
+        |> redirect(to: Routes.<%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -60,7 +60,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
       {:ok, <%= schema.singular %>} ->
         conn
         |> put_flash(:info, dgettext("<%= schema.plural %>", "<%= schema.human_singular %> updated successfully."))
-        |> redirect(to: <%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>))
+        |> redirect(to: Routes.<%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", <%= schema.singular %>: <%= schema.singular %>, changeset: changeset)
     end
@@ -72,7 +72,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
     conn
     |> put_flash(:info, dgettext("<%= schema.plural %>", "<%= schema.human_singular %> deleted successfully."))
-    |> redirect(to: <%= schema.route_helper %>_path(conn, :index))
+    |> redirect(to: Routes.<%= schema.route_helper %>_path(conn, :index))
   end
 
   defp render_index(conn, %{total_entries: 0}), do: render(conn, "empty.html")
@@ -82,21 +82,21 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
   defp put_new_breadcrumb(conn) do
     name = dgettext("<%= schema.plural %>", "New <%= schema.singular %>")
-    url  = <%= schema.route_helper %>_path(conn, :new)
+    url  = Routes.<%= schema.route_helper %>_path(conn, :new)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_show_breadcrumb(conn, <%= schema.singular %>) do
     name = dgettext("<%= schema.plural %>", "<%= schema.human_singular%>")
-    url  = <%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>)
+    url  = Routes.<%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_edit_breadcrumb(conn, <%= schema.singular %>) do
     name = dgettext("<%= schema.plural %>", "Edit <%= schema.singular %>")
-    url  = <%= schema.route_helper %>_path(conn, :edit, <%= schema.singular %>)
+    url  = Routes.<%= schema.route_helper %>_path(conn, :edit, <%= schema.singular %>)
 
     conn |> put_breadcrumb(name, url)
   end

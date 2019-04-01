@@ -11,13 +11,13 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   describe "unauthorized access" do
     test "requires user authentication on all actions", %{conn: conn} do
       Enum.each([
-        get(conn,    <%= schema.route_helper %>_path(conn, :index)),
-        get(conn,    <%= schema.route_helper %>_path(conn, :new)),
-        post(conn,   <%= schema.route_helper %>_path(conn, :create, %{})),
-        get(conn,    <%= schema.route_helper %>_path(conn, :show, "123")),
-        get(conn,    <%= schema.route_helper %>_path(conn, :edit, "123")),
-        put(conn,    <%= schema.route_helper %>_path(conn, :update, "123", %{})),
-        delete(conn, <%= schema.route_helper %>_path(conn, :delete, "123"))
+        get(conn,    Routes.<%= schema.route_helper %>_path(conn, :index)),
+        get(conn,    Routes.<%= schema.route_helper %>_path(conn, :new)),
+        post(conn,   Routes.<%= schema.route_helper %>_path(conn, :create, %{})),
+        get(conn,    Routes.<%= schema.route_helper %>_path(conn, :show, "123")),
+        get(conn,    Routes.<%= schema.route_helper %>_path(conn, :edit, "123")),
+        put(conn,    Routes.<%= schema.route_helper %>_path(conn, :update, "123", %{})),
+        delete(conn, Routes.<%= schema.route_helper %>_path(conn, :delete, "123"))
       ], fn conn ->
         assert html_response(conn, 302)
         assert conn.halted
@@ -30,7 +30,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
     @tag login_as: "test@user.com"
     test "lists all <%= schema.plural %>", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
-      conn     = get conn, <%= schema.route_helper %>_path(conn, :index)
+      conn     = get conn, Routes.<%= schema.route_helper %>_path(conn, :index)
       response = html_response(conn, 200)
 
       assert response =~ "<%= schema.human_plural %>"
@@ -41,7 +41,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   describe "empty index" do
     @tag login_as: "test@user.com"
     test "lists no <%= schema.plural %>", %{conn: conn} do
-      conn = get conn, <%= schema.route_helper %>_path(conn, :index)
+      conn = get conn, Routes.<%= schema.route_helper %>_path(conn, :index)
 
       assert html_response(conn, 200) =~ "you have no <%= schema.plural %>"
     end
@@ -50,7 +50,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   describe "new <%= schema.singular %>" do
     @tag login_as: "test@user.com"
     test "renders form", %{conn: conn} do
-      conn = get conn, <%= schema.route_helper %>_path(conn, :new)
+      conn = get conn, Routes.<%= schema.route_helper %>_path(conn, :new)
 
       assert html_response(conn, 200) =~ "New <%= schema.singular %>"
     end
@@ -59,15 +59,15 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   describe "create <%= schema.singular %>" do
     @tag login_as: "test@user.com"
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post conn, <%= schema.route_helper %>_path(conn, :create), <%= schema.singular %>: @create_attrs
+      conn = post conn, Routes.<%= schema.route_helper %>_path(conn, :create), <%= schema.singular %>: @create_attrs
 
       assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == <%= schema.route_helper %>_path(conn, :show, id)
+      assert redirected_to(conn) == Routes.<%= schema.route_helper %>_path(conn, :show, id)
     end
 
     @tag login_as: "test@user.com"
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post conn, <%= schema.route_helper %>_path(conn, :create), <%= schema.singular %>: @invalid_attrs
+      conn = post conn, Routes.<%= schema.route_helper %>_path(conn, :create), <%= schema.singular %>: @invalid_attrs
 
       assert html_response(conn, 200) =~ "New <%= schema.singular %>"
     end
@@ -78,7 +78,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
     @tag login_as: "test@user.com"
     test "renders form for editing chosen <%= schema.singular %>", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
-      conn = get conn, <%= schema.route_helper %>_path(conn, :edit, <%= schema.singular %>)
+      conn = get conn, Routes.<%= schema.route_helper %>_path(conn, :edit, <%= schema.singular %>)
 
       assert html_response(conn, 200) =~ "Edit <%= schema.singular %>"
     end
@@ -89,14 +89,14 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
     @tag login_as: "test@user.com"
     test "redirects when data is valid", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
-      conn = put conn, <%= schema.route_helper %>_path(conn, :update, <%= schema.singular %>), <%= schema.singular %>: @update_attrs
+      conn = put conn, Routes.<%= schema.route_helper %>_path(conn, :update, <%= schema.singular %>), <%= schema.singular %>: @update_attrs
 
-      assert redirected_to(conn) == <%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>)
+      assert redirected_to(conn) == Routes.<%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>)
     end
 
     @tag login_as: "test@user.com"
     test "renders errors when data is invalid", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
-      conn = put conn, <%= schema.route_helper %>_path(conn, :update, <%= schema.singular %>), <%= schema.singular %>: @invalid_attrs
+      conn = put conn, Routes.<%= schema.route_helper %>_path(conn, :update, <%= schema.singular %>), <%= schema.singular %>: @invalid_attrs
 
       assert html_response(conn, 200) =~ "Edit <%= schema.singular %>"
     end
@@ -107,9 +107,9 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
     @tag login_as: "test@user.com"
     test "deletes chosen <%= schema.singular %>", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
-      conn = delete conn, <%= schema.route_helper %>_path(conn, :delete, <%= schema.singular %>)
+      conn = delete conn, Routes.<%= schema.route_helper %>_path(conn, :delete, <%= schema.singular %>)
 
-      assert redirected_to(conn) == <%= schema.route_helper %>_path(conn, :index)
+      assert redirected_to(conn) == Routes.<%= schema.route_helper %>_path(conn, :index)
     end
   end
 

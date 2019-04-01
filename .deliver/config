@@ -48,7 +48,7 @@ post_upgrade_release() {
   symlink_static
 }
 
-symlink_static(){
+symlink_static() {
   status "Running post update symlink!"
   __remote "
     ln -sfn $DELIVER_TO/$APP/lib/$APP$RELEASE-$VERSION/priv/static $DELIVER_TO/$APP/static

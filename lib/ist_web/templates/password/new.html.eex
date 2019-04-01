@@ -14,7 +14,7 @@
               <%= dgettext("passwords", "Enter your email address") %>
             </p>
 
-            <%= form_for @conn, password_path(@conn, :create), [as: :user], fn f -> %>
+            <%= form_for @conn, Routes.password_path(@conn, :create), [as: :user], fn f -> %>
               <%= input f, :email, dgettext("users", "Email"),
                 input_html: [autofocus: true, class: "input is-medium", placeholder: dgettext("users", "Email")],
                 icons:      [left: "envelope"],
@@ -30,7 +30,7 @@
 
           <p class="has-text-centered">
             <%= dgettext("passwords", "Nevermind") %>,
-            <%= link dgettext("passwords", "go back to login"), to: session_path(@conn, :new) %>
+            <%= link dgettext("passwords", "go back to login"), to: Routes.session_path(@conn, :new) %>
           </p>
         </div>
       </div>

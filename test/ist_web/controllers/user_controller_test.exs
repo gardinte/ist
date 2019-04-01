@@ -21,13 +21,13 @@ defmodule IstWeb.UserControllerTest do
     test "requires user authentication on all actions", %{conn: conn} do
       Enum.each(
         [
-          get(conn, user_path(conn, :index)),
-          get(conn, user_path(conn, :new)),
-          post(conn, user_path(conn, :create, %{})),
-          get(conn, user_path(conn, :show, "123")),
-          get(conn, user_path(conn, :edit, "123")),
-          put(conn, user_path(conn, :update, "123", %{})),
-          delete(conn, user_path(conn, :delete, "123"))
+          get(conn, Routes.user_path(conn, :index)),
+          get(conn, Routes.user_path(conn, :new)),
+          post(conn, Routes.user_path(conn, :create, %{})),
+          get(conn, Routes.user_path(conn, :show, "123")),
+          get(conn, Routes.user_path(conn, :edit, "123")),
+          put(conn, Routes.user_path(conn, :update, "123", %{})),
+          delete(conn, Routes.user_path(conn, :delete, "123"))
         ],
         fn conn ->
           assert html_response(conn, 302)
@@ -40,7 +40,7 @@ defmodule IstWeb.UserControllerTest do
   describe "index" do
     @tag login_as: "test@user.com"
     test "lists all users", %{conn: conn} do
-      conn = get(conn, user_path(conn, :index))
+      conn = get(conn, Routes.user_path(conn, :index))
 
       assert html_response(conn, 200) =~ "Users"
     end
@@ -49,7 +49,7 @@ defmodule IstWeb.UserControllerTest do
   describe "new user" do
     @tag login_as: "test@user.com"
     test "renders form", %{conn: conn} do
-      conn = get(conn, user_path(conn, :new))
+      conn = get(conn, Routes.user_path(conn, :new))
 
       assert html_response(conn, 200) =~ "New user"
     end
@@ -58,15 +58,15 @@ defmodule IstWeb.UserControllerTest do
   describe "create user" do
     @tag login_as: "test@user.com"
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post(conn, user_path(conn, :create), user: @create_attrs)
+      conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
-      assert redirected_to(conn) == user_path(conn, :show, id)
+      assert redirected_to(conn) == Routes.user_path(conn, :show, id)
     end
 
     @tag login_as: "test@user.com"
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, user_path(conn, :create), user: @invalid_attrs)
+      conn = post(conn, Routes.user_path(conn, :create), user: @invalid_attrs)
 
       assert html_response(conn, 200)
     end
@@ -77,7 +77,7 @@ defmodule IstWeb.UserControllerTest do
 
     @tag login_as: "test@user.com"
     test "renders form for editing chosen user", %{conn: conn, user: user} do
-      conn = get(conn, user_path(conn, :edit, user))
+      conn = get(conn, Routes.user_path(conn, :edit, user))
 
       assert html_response(conn, 200) =~ ~r/#{user.email}/
     end
@@ -88,14 +88,14 @@ defmodule IstWeb.UserControllerTest do
 
     @tag login_as: "test@user.com"
     test "redirects when data is valid", %{conn: conn, user: user} do
-      conn = put(conn, user_path(conn, :update, user), user: @update_attrs)
+      conn = put(conn, Routes.user_path(conn, :update, user), user: @update_attrs)
 
-      assert redirected_to(conn) == user_path(conn, :show, user)
+      assert redirected_to(conn) == Routes.user_path(conn, :show, user)
     end
 
     @tag login_as: "test@user.com"
     test "renders errors when data is invalid", %{conn: conn, user: user} do
-      conn = put(conn, user_path(conn, :update, user), user: @invalid_attrs)
+      conn = put(conn, Routes.user_path(conn, :update, user), user: @invalid_attrs)
 
       assert html_response(conn, 200)
     end
@@ -106,9 +106,9 @@ defmodule IstWeb.UserControllerTest do
 
     @tag login_as: "test@user.com"
     test "deletes chosen user", %{conn: conn, user: user} do
-      conn = delete(conn, user_path(conn, :delete, user))
+      conn = delete(conn, Routes.user_path(conn, :delete, user))
 
-      assert redirected_to(conn) == user_path(conn, :index)
+      assert redirected_to(conn) == Routes.user_path(conn, :index)
     end
   end
 
