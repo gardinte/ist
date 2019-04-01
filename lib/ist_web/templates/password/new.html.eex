@@ -18,7 +18,7 @@
               <%= input f, :email, dgettext("users", "Email"),
                 input_html: [autofocus: true, class: "input is-medium", placeholder: dgettext("users", "Email")],
                 icons:      [left: "envelope"],
-                label_html: [class: "label is-sr"] %>
+                label_html: [class: "label is-sr-only"] %>
 
               <div class="field">
                 <p class="control has-text-centered">

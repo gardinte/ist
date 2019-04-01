@@ -14,12 +14,12 @@
               <%= input f, :email, dgettext("sessions", "Email"),
                 input_html: email_input_html(),
                 icons:      [left: "envelope"],
-                label_html: [class: "label is-sr"] %>
+                label_html: [class: "label is-sr-only"] %>
 
               <%= input f, :password, dgettext("sessions", "Password"),
                 input_html: [class: "input is-medium", placeholder: dgettext("sessions", "Password")],
                 icons:      [left: "lock"],
-                label_html: [class: "label is-sr"] %>
+                label_html: [class: "label is-sr-only"] %>
 
               <div class="field">
                 <p class="control has-text-centered">

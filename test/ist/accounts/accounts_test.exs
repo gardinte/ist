@@ -31,6 +31,8 @@ defmodule Ist.AccountsTest do
       refute schema_exists?(account.db_prefix)
     end
 
+    # https://hexdocs.pm/ecto_sql/Ecto.Migrator.html#run/4-execution-model
+    @tag :skip
     test "create_account/1 with valid data creates a account with schema" do
       assert {:ok, %Account{} = account} = Accounts.create_account(@valid_attrs)
       assert account.db_prefix == "db_prefix"
@@ -186,7 +188,7 @@ defmodule Ist.AccountsTest do
 
       assert {:ok, user} = Accounts.update_user_password(user, attrs)
       assert %User{} = user
-      assert Comeonin.Argon2.checkpw(attrs.password, user.password_hash)
+      assert Argon2.verify_pass(attrs.password, user.password_hash)
     end
 
     test "update_user_password/2 with invalid data returns error changeset" do

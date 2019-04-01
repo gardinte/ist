@@ -1,5 +1,8 @@
 defmodule Ist.Repo do
-  use Ecto.Repo, otp_app: :ist
+  use Ecto.Repo,
+    otp_app: :ist,
+    adapter: Ecto.Adapters.Postgres
+
   use Scrivener, page_size: 10
 
   @doc """

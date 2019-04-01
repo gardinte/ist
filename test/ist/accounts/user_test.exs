@@ -75,7 +75,7 @@ defmodule Ist.Accounts.UserTest do
       changeset = User.changeset(%User{}, @valid_attrs)
       %{password_hash: password_hash} = changeset.changes
 
-      assert Comeonin.Argon2.checkpw(@valid_attrs.password, password_hash)
+      assert Argon2.verify_pass(@valid_attrs.password, password_hash)
     end
 
     test "changeset ignores blank password" do

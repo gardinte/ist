@@ -37,7 +37,7 @@
           </tbody>
         </table>
 
-        <%= pagination_links @conn, @page, view_style: :bulma %>
+        <%= pagination_links @conn, @page %>
       </div>
     </div>
   </div>

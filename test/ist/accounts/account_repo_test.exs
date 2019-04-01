@@ -18,6 +18,8 @@ defmodule Ist.Accounts.AccountRepoTest do
       assert "has already been taken" in errors_on(changeset).db_prefix
     end
 
+    # https://hexdocs.pm/ecto_sql/Ecto.Migrator.html#run/4-execution-model
+    @tag :skip
     test "after create creates schema and migrates" do
       changeset = Account.create_changeset(%Account{}, @valid_attrs)
 
@@ -32,6 +34,8 @@ defmodule Ist.Accounts.AccountRepoTest do
       assert schema_migrated?(@valid_attrs.db_prefix)
     end
 
+    # https://hexdocs.pm/ecto_sql/Ecto.Migrator.html#run/4-execution-model
+    @tag :skip
     test "after delete drops schema" do
       account = fixture(:account, @valid_attrs, create_schema: true)
 

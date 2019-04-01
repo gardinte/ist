@@ -1,10 +1,10 @@
 [
+  import_deps: [:phoenix],
   inputs: [
-    "config/*.exs",
+    "*.{ex,exs}",
+    "config/**/*.{ex,exs}",
     "lib/**/*.{ex,exs}",
     "priv/repo/**/*.{ex,exs}",
-    "test/**/*.{ex,exs}",
-    "mix.exs",
-    ".formatter.exs"
+    "test/**/*.{ex,exs}"
   ]
 ]

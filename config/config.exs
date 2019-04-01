@@ -3,10 +3,12 @@
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
+#
+# General application configuration
 use Mix.Config
 
-# General application configuration
-config :ist, ecto_repos: [Ist.Repo]
+config :ist,
+  ecto_repos: [Ist.Repo]
 
 # Configures the endpoint
 config :ist, IstWeb.Endpoint,
@@ -18,19 +20,24 @@ config :ist, IstWeb.Endpoint,
 # Gettext config
 config :ist, IstWeb.Gettext, default_locale: "es_AR"
 
-# Scrivener config
-config :scrivener_html, routes_helper: IstWeb.Router.Helpers
-
-# PaperTrail config
-config :paper_trail, repo: Ist.Repo
-
 # Ecto timestamps
 config :ist, Ist.Repo, migration_timestamps: [type: :utc_datetime]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:user_id]
+  metadata: [:request_id]
+
+# Use Jason for JSON parsing in Phoenix and Ecto
+config :phoenix, :json_library, Jason
+
+# PaperTrail config
+config :paper_trail, repo: Ist.Repo
+
+# Scrivener HTML config
+config :scrivener_html,
+  routes_helper: IstWeb.Router.Helpers,
+  view_style: :bulma
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

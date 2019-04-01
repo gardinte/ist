@@ -17,13 +17,12 @@ config :logger, level: :warn
 
 # Configure your database
 config :ist, Ist.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: if(System.get_env("TRAVIS"), do: "postgres", else: "ist"),
+  password: if(System.get_env("TRAVIS"), do: "postgres", else: "ist"),
   database: "ist_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 config :argon2_elixir,
   t_cost: 1,
-  m_cost: 3
+  m_cost: 5

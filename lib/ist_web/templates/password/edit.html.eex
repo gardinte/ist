@@ -13,12 +13,12 @@
             <%= input f, :password, dgettext("users", "Password"),
               input_html: [autofocus: true, class: "input is-medium", placeholder: dgettext("users", "Password")],
               icons:      [left: "lock"],
-              label_html: [class: "label is-sr"] %>
+              label_html: [class: "label is-sr-only"] %>
 
             <%= input f, :password_confirmation, dgettext("users", "Password confirmation"),
               input_html: [class: "input is-medium", placeholder: dgettext("users", "Password confirmation")],
               icons:      [left: "check"],
-              label_html: [class: "label is-sr"] %>
+              label_html: [class: "label is-sr-only"] %>
 
             <div class="field">
               <p>

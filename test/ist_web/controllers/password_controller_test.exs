@@ -66,7 +66,7 @@ defmodule IstWeb.PasswordControllerTest do
 
       user = Repo.get(User, user.id)
 
-      assert Comeonin.Argon2.checkpw(@valid_attrs.password, user.password_hash)
+      assert Argon2.verify_pass(@valid_attrs.password, user.password_hash)
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -79,7 +79,7 @@ defmodule IstWeb.PasswordControllerTest do
 
       user = Repo.get(User, user.id)
 
-      refute Comeonin.Argon2.checkpw(@invalid_attrs.password, user.password_hash)
+      refute Argon2.verify_pass(@invalid_attrs.password, user.password_hash)
     end
 
     test "redirects when invalid token", %{conn: conn} do
