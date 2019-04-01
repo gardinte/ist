@@ -1,16 +1,23 @@
 /* global module, process, require, __dirname */
 
-const Path                 = require('path')
-const CopyWebpackPlugin    = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const isProduction         = process.env.MIX_ENV === 'prod'
+const isProduction            = process.env.npm_lifecycle_event === 'build'
+const Path                    = require('path')
+const UglifyJsPlugin          = require('uglifyjs-webpack-plugin')
+const CopyWebpackPlugin       = require('copy-webpack-plugin')
+const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const config = {
-  mode: isProduction ? 'production' : 'development',
+module.exports = {
+  mode:    isProduction ? 'production' : 'development',
+  devtool: isProduction ? undefined : 'source-map',
+  entry:   ['./js/app.js', './css/app.scss'],
 
-  entry: ['./js/app.js', './css/app.scss'],
-
-  devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({cache: true, parallel: true, sourceMap: false}),
+      new OptimizeCSSAssetsPlugin()
+    ]
+  },
 
   output: {
     path:     Path.resolve(__dirname, '../priv/static'),
@@ -36,7 +43,6 @@ const config = {
           {
             loader:  'css-loader',
             options: {
-              minimize:  isProduction,
               sourceMap: !isProduction
             }
           },
@@ -67,5 +73,3 @@ const config = {
     }
   }
 }
-
-module.exports = config

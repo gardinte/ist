@@ -13,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 config.keepOriginalSource = false
+config.mutateApproach     = 'sync'
 
 library.add(
   faCheck,
@@ -27,6 +28,4 @@ library.add(
   faUser
 )
 
-dom.watch({
-  observeMutationsRoot: document
-})
+dom.watch()
