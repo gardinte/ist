@@ -1,7 +1,7 @@
 #!/bin/sh
 
 eslint="assets/node_modules/.bin/eslint"
-files=$(git diff --cached --name-only | grep '\.js$')
+files=$(git diff --cached --name-only --diff-filter=d | grep '\.js$')
 
 if [[ $files = "" ]] ; then
   exit 0

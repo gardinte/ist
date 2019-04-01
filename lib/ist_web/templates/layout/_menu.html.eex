@@ -1,4 +1,4 @@
-<nav class="navbar has-shadow is-light is-fixed-top">
+<nav class="navbar has-shadow is-light is-fixed-top" data-controller="menu">
   <div class="container">
     <div class="navbar-brand">
       <%= link to: Routes.root_path(@conn, :index), class: "navbar-item is-hoverable" do %>
@@ -7,14 +7,14 @@
         </span>
       <% end %>
 
-      <div class="navbar-burger" data-target="#main-menu">
+      <div class="navbar-burger is-hidden" data-action="click->menu#toggle" data-target="menu.burger">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
 
-    <div id="main-menu" class="navbar-menu">
+    <div class="navbar-menu" data-target="menu.options">
       <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">

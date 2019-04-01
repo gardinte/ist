@@ -1,7 +1,7 @@
-<div class="hero-head">
+<div class="hero-head" data-controller="flash" data-target="flash.message">
   <div class="container">
     <p class="notification <%= flash_class(@type) %>">
-      <button class="delete" data-delete=".hero-head"></button>
+      <button class="delete is-hidden" data-action="click->flash#close" data-target="flash.close"></button>
       <%= @message %>
     </p>
   </div>
