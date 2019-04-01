@@ -1,0 +1,11 @@
+.git
+_build/
+assets/node_modules/
+deps/
+!deps/phoenix
+!deps/phoenix_html
+doc/
+priv/static/*
+erl_crash.dump
+*.ez
+ist-*.tar
