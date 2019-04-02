@@ -73,6 +73,14 @@
     "type": "tsupport"
   },
 
+  "test/support/helpers/fixture_helper.ex": {
+    "type": "fixtures"
+  },
+
+  "test/support/fixtures/*_fixture.ex": {
+    "type": "fixtures"
+  },
+
   "lib/ist_web/templates/*.eex": {
     "type": "template"
   },
