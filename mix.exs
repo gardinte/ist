@@ -44,7 +44,7 @@ defmodule Ist.Mixfile do
       {:gettext, ">= 0.16.0"},
       {:plug_cowboy, ">= 2.0.0"},
       {:argon2_elixir, ">= 2.0.0"},
-      {:scrivener_ecto, ">= 2.1.0"},
+      {:scrivener_ecto, ">= 2.2.0"},
       {:scrivener_html, ">= 1.8.0"},
       {:bamboo, ">= 1.2.0"},
       {:bamboo_smtp, ">= 1.6.0"},

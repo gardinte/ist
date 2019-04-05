@@ -60,7 +60,9 @@ defmodule IstWeb.PasswordControllerTest do
       user = user_with_password_reset_token()
 
       conn =
-        put(conn, Routes.password_path(conn, :update, user.password_reset_token), user: @valid_attrs)
+        put(conn, Routes.password_path(conn, :update, user.password_reset_token),
+          user: @valid_attrs
+        )
 
       assert redirected_to(conn) == Routes.root_path(conn, :index)
 
@@ -73,7 +75,9 @@ defmodule IstWeb.PasswordControllerTest do
       user = user_with_password_reset_token()
 
       conn =
-        put(conn, Routes.password_path(conn, :update, user.password_reset_token), user: @invalid_attrs)
+        put(conn, Routes.password_path(conn, :update, user.password_reset_token),
+          user: @invalid_attrs
+        )
 
       assert html_response(conn, 200)
 

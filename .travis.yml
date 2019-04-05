@@ -9,3 +9,6 @@ addons:
   postgresql: 10
 services:
   - postgresql
+script:
+  - mix test
+  - mix format --check-formatted
