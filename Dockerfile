@@ -3,7 +3,7 @@ ARG APP_HOME=/app
 # ----------------------
 # --- Assets builder ---
 # ----------------------
-FROM node:lts-alpine AS assets_build
+FROM node:alpine AS assets_build
 
 LABEL stage=intermediate
 
