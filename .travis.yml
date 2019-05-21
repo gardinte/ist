@@ -4,7 +4,7 @@ sudo: false
 elixir:
   - 1.8
 otp_release:
-  - 21.3
+  - 22.0
 addons:
   postgresql: 10
 services:
