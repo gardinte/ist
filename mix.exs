@@ -41,16 +41,15 @@ defmodule Ist.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_reload, ">= 1.2.0", only: :dev},
       {:jason, ">= 1.1.0"},
-      {:gettext, ">= 0.16.0"},
-      {:plug_cowboy, ">= 2.0.0"},
+      {:gettext, ">= 0.17.0"},
+      {:plug_cowboy, ">= 2.1.0"},
       {:argon2_elixir, ">= 2.0.0"},
       {:scrivener_ecto, ">= 2.2.0"},
       {:scrivener_html, ">= 1.8.0"},
       {:bamboo, ">= 1.2.0"},
-      {:bamboo_smtp, ">= 1.6.0"},
+      {:bamboo_smtp, ">= 1.7.0"},
       {:paper_trail, ">= 0.8.0"},
-      {:edeliver, ">= 1.6.0"},
-      {:distillery, ">= 2.0.0"}
+      {:distillery, ">= 2.1.0"}
     ]
   end
 
