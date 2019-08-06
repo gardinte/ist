@@ -63,6 +63,20 @@ config :phoenix, :serve_endpoints, true
 #     config :ist, IstWeb.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+config :ist, IstWeb.Endpoint, secret_key_base: "${SECRET_KEY_BASE}"
+
+config :ist, Ist.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: "${DATABASE_URL}",
+  pool_size: 15
+
+# Bamboo SMTP adapter
+config :ist, Ist.Notifications.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "${SMTP_SERVER}",
+  hostname: "gardinte.com",
+  port: "${SMTP_PORT}",
+  username: "${SMTP_USERNAME}",
+  password: "${SMTP_PASSWORD}",
+  tls: :always,
+  retries: 10
