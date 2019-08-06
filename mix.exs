@@ -46,8 +46,7 @@ defmodule Ist.Mixfile do
       {:argon2_elixir, ">= 2.0.0"},
       {:scrivener_ecto, ">= 2.2.0"},
       {:scrivener_html, ">= 1.8.0"},
-      {:bamboo, ">= 1.2.0"},
-      {:bamboo_smtp, ">= 1.7.0"},
+      {:bamboo, ">= 1.3.0"},
       {:paper_trail, ">= 0.8.0"},
       {:distillery, ">= 2.1.0"}
     ]

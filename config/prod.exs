@@ -70,13 +70,7 @@ config :ist, Ist.Repo,
   url: "${DATABASE_URL}",
   pool_size: 15
 
-# Bamboo SMTP adapter
+# Bamboo SendGrid adapter
 config :ist, Ist.Notifications.Mailer,
-  adapter: Bamboo.SMTPAdapter,
-  server: "${SMTP_SERVER}",
-  hostname: "gardinte.com",
-  port: "${SMTP_PORT}",
-  username: "${SMTP_USERNAME}",
-  password: "${SMTP_PASSWORD}",
-  tls: :always,
-  retries: 10
+  adapter: Bamboo.SendGridAdapter,
+  api_key: "${SENDGRID_API_KEY}"
