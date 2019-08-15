@@ -2,22 +2,22 @@ steps:
 
 - id: 'build'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'gcr.io/${PROJECT}/${APP}']
+  args: ['build', '.', '-t', 'gcr.io/${_PROJECT}/${_APP}']
 
 - id: 'deploy'
   name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/${DEPLOYMENT}', 'app=gcr.io/${PROJECT}/${APP}']
+  args: ['set', 'image', 'deployment/${_DEPLOYMENT}', 'app=gcr.io/${_PROJECT}/${_APP}']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=${ZONE}'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=${CLUSTER}'
+  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'
 
-images: ['gcr.io/${PROJECT}/${APP}']
+images: ['gcr.io/${_PROJECT}/${_APP}']
 
 substitutions:
-  APP: ist
-  CLUSTER: gardinte
-  DEPLOYMENT: gardinte-app
-  PROJECT: k8s-gardinte-development
-  ZONE: us-east1-b
+  _APP: ist
+  _CLUSTER: gardinte
+  _DEPLOYMENT: gardinte-app
+  _PROJECT: k8s-gardinte-development
+  _ZONE: us-east1-b
 
 tags: ['gardinte']
