@@ -32,7 +32,7 @@ spec:
               key: sendgridApiKey
               name: gardinte-app-secrets
         name: app
-        image: @IMAGE_NAME@
+        image: '@IMAGE_NAME@'
         livenessProbe:
           httpGet:
             path: /sessions/new
