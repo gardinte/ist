@@ -1,23 +1,35 @@
 steps:
 
-- id: 'build'
+- id: 'Build'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'gcr.io/${_PROJECT}/${_APP}']
+  args: ['build', '.', '-t', '${_IMAGE_NAME}:${SHORT_SHA}']
 
-- id: 'deploy'
-  name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/${_DEPLOYMENT}', 'app=gcr.io/${_PROJECT}/${_APP}']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'
+- id: 'Push'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', '${_IMAGE_NAME}:${SHORT_SHA}']
 
-images: ['gcr.io/${_PROJECT}/${_APP}']
+- id: 'Deploy'
+  name: 'gcr.io/cloud-builders/gke-deploy:stable'
+  args:
+    - 'run'
+    - '--image=$_IMAGE_NAME:$SHORT_SHA'
+    - '--app=$_K8S_APP_NAME'
+    - '--version=$SHORT_SHA'
+    - '--namespace=$_K8S_NAMESPACE'
+    - '--label=$_K8S_LABELS,gcb-build-id=$BUILD_ID'
+    - '--cluster=$_GKE_CLUSTER'
+    - '--location=$_GKE_LOCATION'
+
+images: ['${_IMAGE_NAME}:${SHORT_SHA}']
+
+tags:
+  - 'gcp-cloud-build-deploy'
+  - '$_K8S_APP_NAME'
 
 substitutions:
-  _APP: ist
-  _CLUSTER: gardinte
-  _DEPLOYMENT: gardinte-app
-  _PROJECT: k8s-gardinte-development
-  _ZONE: us-east1-b
-
-tags: ['gardinte']
+  _GKE_CLUSTER: 'gardinte'
+  _GKE_LOCATION: 'us-east1-b'
+  _K8S_APP_NAME: 'app'
+  _K8S_NAMESPACE: 'development'
+  _K8S_LABELS: 'app=gardinte-app'
+  _IMAGE_NAME: 'gcr.io/k8s-gardinte-development/ist'
