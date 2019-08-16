@@ -6,7 +6,7 @@ ARG APP_HOME=/opt/app
 FROM elixir:alpine AS build
 
 ARG APP_HOME
-ENV MIX_ENV dev
+ENV MIX_ENV test
 
 RUN apk add --update --no-cache build-base yarn
 
