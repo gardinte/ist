@@ -1,5 +1,9 @@
 steps:
 
+- id: 'Test'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['docker-compose', 'run', '-T', 'app', 'test']
+
 - id: 'Build'
   name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.', '-t', '${_IMAGE_NAME}:${SHORT_SHA}', '-t', '${_IMAGE_NAME}:latest']

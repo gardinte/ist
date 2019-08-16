@@ -1,0 +1,21 @@
+ARG APP_HOME=/opt/app
+
+# ----------------------
+# ---- App builder -----
+# ----------------------
+FROM elixir:alpine AS build
+
+ARG APP_HOME
+ENV MIX_ENV dev
+
+RUN apk add --update --no-cache build-base yarn
+
+RUN mkdir -p $APP_HOME
+
+WORKDIR $APP_HOME
+
+ADD . $APP_HOME
+
+RUN mix local.hex --force && mix local.rebar --force && mix deps.get
+
+ENTRYPOINT [ "mix" ]
