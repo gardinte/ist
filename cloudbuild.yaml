@@ -2,7 +2,8 @@ steps:
 
 - id: 'Test'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['docker-compose', 'run', '-T', 'app', 'test']
+  entrypoint: 'docker-compose'
+  args: ['run', '-T', 'app', 'test']
 
 - id: 'Build'
   name: 'gcr.io/cloud-builders/docker'
