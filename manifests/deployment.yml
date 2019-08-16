@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: gardinte-app
+  name: gardinte-app
+spec:
+  selector:
+    matchLabels:
+      app: gardinte-app
+  template:
+    metadata:
+      labels:
+        app: gardinte-app
+    spec:
+      containers:
+      - env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: databaseUrl
+              name: gardinte-app-secrets
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: secretKeyBase
+              name: gardinte-app-secrets
+        - name: SENDGRID_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: sendgridApiKey
+              name: gardinte-app-secrets
+        name: app
+        image: @IMAGE_NAME@
+        livenessProbe:
+          httpGet:
+            path: /sessions/new
+            port: 4000
+            scheme: HTTP
+        readinessProbe:
+          httpGet:
+            path: /sessions/new
+            port: 4000
+            scheme: HTTP
+        ports:
+        - containerPort: 4000
+          name: gardinte-app
+          protocol: TCP
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: gardinte-app-secrets

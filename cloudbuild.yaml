@@ -12,6 +12,7 @@ steps:
   name: 'gcr.io/cloud-builders/gke-deploy:stable'
   args:
     - 'run'
+    - '--filename=$_K8S_YAML_PATH'
     - '--image=$_IMAGE_NAME:$SHORT_SHA'
     - '--app=$_K8S_APP_NAME'
     - '--version=$SHORT_SHA'
@@ -29,7 +30,8 @@ tags:
 substitutions:
   _GKE_CLUSTER: 'gardinte'
   _GKE_LOCATION: 'us-east1-b'
-  _K8S_APP_NAME: 'app'
+  _K8S_APP_NAME: 'gardinte-app'
+  _K8S_YAML_PATH: 'manifests'
   _K8S_NAMESPACE: 'development'
   _K8S_LABELS: 'app=gardinte-app'
   _IMAGE_NAME: 'gcr.io/k8s-gardinte-development/ist'
