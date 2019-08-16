@@ -12,8 +12,6 @@ services:
     image: gardinte/app-test
     ports:
       - '4000:4000'
-    volumes:
-      - $PWD:/opt/app
 
   database:
     image: postgres:alpine
