@@ -8,6 +8,10 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['push', '${_IMAGE_NAME}:${SHORT_SHA}']
 
+- id: 'Tag'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', '${_IMAGE_NAME}:${SHORT_SHA}', '${_IMAGE_NAME}:latest']
+
 - id: 'Deploy'
   name: 'gcr.io/cloud-builders/gke-deploy:stable'
   args:
