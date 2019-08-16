@@ -2,15 +2,15 @@ steps:
 
 - id: 'Build'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', '${_IMAGE_NAME}:${SHORT_SHA}']
+  args: ['build', '.', '-t', '${_IMAGE_NAME}:${SHORT_SHA}', '-t', '${_IMAGE_NAME}:latest']
 
 - id: 'Push'
   name: 'gcr.io/cloud-builders/docker'
   args: ['push', '${_IMAGE_NAME}:${SHORT_SHA}']
 
-- id: 'Tag'
+- id: 'Push as latest'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', '${_IMAGE_NAME}:${SHORT_SHA}', '${_IMAGE_NAME}:latest']
+  args: ['push', '${_IMAGE_NAME}:latest']
 
 - id: 'Deploy'
   name: 'gcr.io/cloud-builders/gke-deploy:stable'
