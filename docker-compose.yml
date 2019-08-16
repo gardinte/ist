@@ -8,6 +8,7 @@ services:
     depends_on:
       - database
     environment:
+      MIX_ENV: test
       DATABASE_HOST: database
     image: gardinte/app-test
     ports:
