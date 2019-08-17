@@ -29,8 +29,6 @@ steps:
     - '--cluster=$_GKE_CLUSTER'
     - '--location=$_GKE_LOCATION'
 
-images: ['${_IMAGE_NAME}:${SHORT_SHA}']
-
 tags:
   - 'gcp-cloud-build-deploy'
   - '$_K8S_APP_NAME'
