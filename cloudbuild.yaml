@@ -38,8 +38,8 @@ steps:
     - '--image=${_IMAGE_NAME}:${SHORT_SHA}'
     - '--generator=run-pod/v1'
     - '--restart=Never'
+    - '--namespace=${_K8S_NAMESPACE}'
     - '--rm'
-    - '-n ${_K8S_NAMESPACE}'
     - '--'
     - 'migrate'
   env:
