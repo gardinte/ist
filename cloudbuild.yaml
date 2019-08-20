@@ -29,6 +29,23 @@ steps:
     - '--cluster=$_GKE_CLUSTER'
     - '--location=$_GKE_LOCATION'
 
+- id: 'Migrate'
+  name: 'gcr.io/cloud-builders/kubectl'
+  args:
+    - 'run'
+    - '${_K8S_APP_NAME}-${SHORT_SHA}-migrate'
+    - '-it'
+    - '--image=${_IMAGE_NAME}:${SHORT_SHA}'
+    - '--generator=run-pod/v1'
+    - '--restart=Never'
+    - '--rm'
+    - '-n ${_K8S_NAMESPACE}'
+    - '--'
+    - 'migrate'
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=${_GKE_LOCATION}'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
+
 tags:
   - 'gcp-cloud-build-deploy'
   - '$_K8S_APP_NAME'
