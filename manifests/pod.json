@@ -1,0 +1,51 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "spec": {
+    "containers": [
+      {
+        "name": "app",
+        "image": "gcr.io/k8s-gardinte-development/ist:latest",
+        "args": ["migrate"],
+        "env": [
+          {
+            "name": "DATABASE_URL",
+            "valueFrom": {
+              "secretKeyRef": {
+                "key": "databaseUrl",
+                "name": "gardinte-app-secrets"
+              }
+            }
+          },
+          {
+            "name": "SECRET_KEY_BASE",
+            "valueFrom": {
+              "secretKeyRef": {
+                "key": "secretKeyBase",
+                "name": "gardinte-app-secrets"
+              }
+            }
+          },
+          {
+            "name": "SENDGRID_API_KEY",
+            "valueFrom": {
+              "secretKeyRef": {
+                "key": "sendgridApiKey",
+                "name": "gardinte-app-secrets"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "secret-volume",
+        "secret": {
+          "secretName": "gardinte-app-secrets"
+        }
+      }
+    ],
+    "restartPolicy": "Never"
+  }
+}

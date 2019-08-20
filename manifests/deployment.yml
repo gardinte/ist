@@ -14,39 +14,39 @@ spec:
         app: gardinte-app
     spec:
       containers:
-      - name: app
-        image: gcr.io/k8s-gardinte-development/ist
-        ports:
-        - containerPort: 4000
-          name: gardinte-app
-          protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /sessions/new
-            port: 4000
-            scheme: HTTP
-        readinessProbe:
-          httpGet:
-            path: /sessions/new
-            port: 4000
-            scheme: HTTP
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              key: databaseUrl
-              name: gardinte-app-secrets
-        - name: SECRET_KEY_BASE
-          valueFrom:
-            secretKeyRef:
-              key: secretKeyBase
-              name: gardinte-app-secrets
-        - name: SENDGRID_API_KEY
-          valueFrom:
-            secretKeyRef:
-              key: sendgridApiKey
-              name: gardinte-app-secrets
+        - name: app
+          image: gcr.io/k8s-gardinte-development/ist
+          ports:
+            - containerPort: 4000
+              name: gardinte-app
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /sessions/new
+              port: 4000
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /sessions/new
+              port: 4000
+              scheme: HTTP
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: databaseUrl
+                  name: gardinte-app-secrets
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  key: secretKeyBase
+                  name: gardinte-app-secrets
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: sendgridApiKey
+                  name: gardinte-app-secrets
       volumes:
-      - name: secret-volume
-        secret:
-          secretName: gardinte-app-secrets
+        - name: secret-volume
+          secret:
+            secretName: gardinte-app-secrets
