@@ -34,11 +34,11 @@ steps:
   args:
     - 'run'
     - '${_K8S_APP_NAME}-${SHORT_SHA}-migrate'
-    - '-it'
     - '--image=${_IMAGE_NAME}:${SHORT_SHA}'
     - '--generator=run-pod/v1'
     - '--restart=Never'
     - '--namespace=${_K8S_NAMESPACE}'
+    - '--attach=true'
     - '--rm'
     - '--'
     - 'migrate'
