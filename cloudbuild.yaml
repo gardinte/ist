@@ -31,15 +31,17 @@ steps:
 
 - id: 'Migrate'
   name: 'gcr.io/cloud-builders/kubectl'
+  entrypoint: 'bash'
   args:
-    - 'run'
-    - '${_K8S_APP_NAME}-${SHORT_SHA}-migrate'
-    - '--image=${_IMAGE_NAME}:${SHORT_SHA}'
-    - '--namespace=${_K8S_NAMESPACE}'
-    - '--overrides="$(cat ${_K8S_RUN_POD_OVERRIDES})"'
-    - '--generator=run-pod/v1'
-    - '--attach'
-    - '--rm'
+    - '-c'
+    - |
+      kubectl run ${_K8S_APP_NAME}-${SHORT_SHA}-migrate \
+      --image=${_IMAGE_NAME}:${SHORT_SHA}               \
+      --namespace=${_K8S_NAMESPACE}                     \
+      --overrides="$(cat ${_K8S_RUN_POD_OVERRIDES})"    \
+      --generator=run-pod/v1                            \
+      --attach                                          \
+      --rm
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=${_GKE_LOCATION}'
     - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
