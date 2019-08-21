@@ -53,7 +53,8 @@ module.exports = {
               sourceMap:      !isProduction,
               sourceComments: !isProduction,
               includePaths:   [
-                Path.resolve(__dirname, 'node_modules/bulma')
+                Path.resolve(__dirname, 'node_modules/bulma'),
+                Path.resolve(__dirname, 'node_modules/video.js/dist')
               ]
             }
           }

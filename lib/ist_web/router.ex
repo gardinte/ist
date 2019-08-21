@@ -2,9 +2,11 @@ defmodule IstWeb.Router do
   use IstWeb, :router
 
   @csp [
-    "default-src 'self'",
+    "default-src 'self' data:",
     "script-src 'self' 'unsafe-inline'",
-    "style-src 'self' 'unsafe-inline'"
+    "style-src 'self' 'unsafe-inline'",
+    "worker-src blob:",
+    "media-src http: https: blob:"
   ]
 
   @csp_headers %{"content-security-policy" => Enum.join(@csp, ";")}
