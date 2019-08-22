@@ -8,7 +8,7 @@
         "image": "gcr.io/k8s-gardinte-development/ist:latest",
         "args": [
           "eval",
-          "\"Ist.Tasks.Release.migrate()\""
+          "Ist.Tasks.Release.migrate()"
         ],
         "env": [
           {
