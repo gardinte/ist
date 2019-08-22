@@ -1,7 +1,6 @@
 import Config
 
-config :ist, IstWeb.Endpoint,
-  secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
+config :ist, IstWeb.Endpoint, secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
 
 config :ist, Ist.Repo,
   adapter: Ecto.Adapters.Postgres,
