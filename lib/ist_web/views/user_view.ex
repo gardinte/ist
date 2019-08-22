@@ -11,7 +11,7 @@ defmodule IstWeb.UserView do
       "eye",
       title: dgettext("users", "Show"),
       to: Routes.user_path(conn, :show, user),
-      class: "button is-small is-outlined is-hidden-mobile"
+      class: "button is-small is-outlined"
     )
   end
 
