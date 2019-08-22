@@ -16,7 +16,9 @@ WORKDIR $APP_HOME
 
 ADD mix.* $APP_HOME/
 
-RUN mix local.hex --force && mix local.rebar --force && mix deps.get
+RUN mix local.hex --force         && \
+    mix local.rebar --force       && \
+    mix deps.get --only $MIX_ENV
 
 # ----------------------
 # --- Assets builder ---
@@ -61,7 +63,9 @@ WORKDIR $APP_HOME
 
 ADD mix.* $APP_HOME/
 
-RUN mix local.hex --force && mix local.rebar --force && mix deps.get
+RUN mix local.hex --force         && \
+    mix local.rebar --force       && \
+    mix deps.get --only $MIX_ENV
 
 ADD . $APP_HOME
 COPY --from=assets_build $APP_HOME/priv/static ./priv/static
@@ -86,7 +90,6 @@ RUN chown -R nobody: $APP_HOME
 
 USER nobody
 
-ENV REPLACE_OS_VARS true
 ENV ELIXIR_APP_PORT=4000 BEAM_PORT=14000 ERL_EPMD_PORT=24000
 EXPOSE $ELIXIR_APP_PORT $BEAM_PORT $ERL_EPMD_PORT
 
