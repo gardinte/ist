@@ -65,7 +65,7 @@ RUN mix local.hex --force && mix local.rebar --force && mix deps.get
 
 ADD . $APP_HOME
 COPY --from=assets_build $APP_HOME/priv/static ./priv/static
-RUN mix phx.digest && mix distillery.release --no-tar
+RUN mix phx.digest && mix release
 
 # ----------------------
 # --- Release image ----
@@ -89,4 +89,4 @@ ENV ELIXIR_APP_PORT=4000 BEAM_PORT=14000 ERL_EPMD_PORT=24000
 EXPOSE $ELIXIR_APP_PORT $BEAM_PORT $ERL_EPMD_PORT
 
 ENTRYPOINT [ "bin/ist" ]
-CMD [ "foreground" ]
+CMD [ "start" ]

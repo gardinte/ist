@@ -9,8 +9,10 @@ defmodule Ist.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      default_release: :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: releases()
     ]
   end
 
@@ -47,8 +49,7 @@ defmodule Ist.Mixfile do
       {:scrivener_ecto, ">= 2.2.0"},
       {:scrivener_html, ">= 1.8.0"},
       {:bamboo, ">= 1.3.0"},
-      {:paper_trail, ">= 0.8.0"},
-      {:distillery, ">= 2.1.0"}
+      {:paper_trail, ">= 0.8.0"}
     ]
   end
 
@@ -63,6 +64,15 @@ defmodule Ist.Mixfile do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate", "run priv/repo/test_seeds.exs", "test"]
+    ]
+  end
+
+  defp releases do
+    [
+      ist: [
+        include_executables_for: [:unix],
+        applications: [runtime_tools: :permanent]
+      ]
     ]
   end
 end

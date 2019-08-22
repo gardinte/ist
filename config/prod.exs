@@ -62,15 +62,3 @@ config :phoenix, :serve_endpoints, true
 #
 #     config :ist, IstWeb.Endpoint, server: true
 #
-
-config :ist, IstWeb.Endpoint, secret_key_base: "${SECRET_KEY_BASE}"
-
-config :ist, Ist.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
-  pool_size: 15
-
-# Bamboo SendGrid adapter
-config :ist, Ist.Notifications.Mailer,
-  adapter: Bamboo.SendGridAdapter,
-  api_key: "${SENDGRID_API_KEY}"

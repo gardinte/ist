@@ -6,7 +6,10 @@
       {
         "name": "app",
         "image": "gcr.io/k8s-gardinte-development/ist:latest",
-        "args": ["migrate"],
+        "args": [
+          "eval",
+          "\"Ist.Tasks.Release.migrate()\""
+        ],
         "env": [
           {
             "name": "DATABASE_URL",
