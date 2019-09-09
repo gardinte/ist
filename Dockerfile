@@ -79,7 +79,7 @@ FROM alpine:3.9
 
 ARG APP_HOME
 
-RUN apk add --update --no-cache bash openssl
+RUN apk add --update --no-cache ncurses
 RUN mkdir -p $APP_HOME
 
 WORKDIR $APP_HOME
