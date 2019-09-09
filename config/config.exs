@@ -5,7 +5,7 @@
 # is restricted to this project.
 #
 # General application configuration
-use Mix.Config
+import Config
 
 config :ist,
   ecto_repos: [Ist.Repo]
