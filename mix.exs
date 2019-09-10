@@ -9,7 +9,6 @@ defmodule Ist.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      default_release: :prod,
       aliases: aliases(),
       deps: deps(),
       releases: releases()
