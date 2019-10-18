@@ -1,8 +1,8 @@
 <section class="section flash-message" data-controller="flash" data-target="flash.message">
   <div class="container">
-    <p class="notification <%= flash_class(@type) %>">
+    <div class="notification <%= flash_class(@type) %>">
       <button class="delete is-hidden" data-action="click->flash#close" data-target="flash.close"></button>
       <%= @message %>
-    </p>
+    </div>
   </div>
 </section>

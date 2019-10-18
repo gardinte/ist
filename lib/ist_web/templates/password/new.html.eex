@@ -10,7 +10,7 @@
           </h2>
 
           <div class="box">
-            <p class="has-text-grey">
+            <p class="title is-6 has-text-grey">
               <%= dgettext("passwords", "Enter your email address") %>
             </p>
 
