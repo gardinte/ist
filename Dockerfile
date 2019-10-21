@@ -74,7 +74,7 @@ RUN mix phx.digest && mix release
 # ----------------------
 # --- Release image ----
 # ----------------------
-FROM alpine:3.9
+FROM alpine
 # Needs to be matched with elixir:alpine version
 
 ARG APP_HOME

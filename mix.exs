@@ -21,7 +21,7 @@ defmodule Ist.Mixfile do
   def application do
     [
       mod: {Ist.Application, []},
-      extra_applications: [:logger, :runtime_tools, :mix]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -44,7 +44,7 @@ defmodule Ist.Mixfile do
       {:jason, ">= 1.1.0"},
       {:gettext, ">= 0.17.0"},
       {:plug_cowboy, ">= 2.1.0"},
-      {:argon2_elixir, ">= 2.0.0"},
+      {:argon2_elixir, ">= 2.1.0"},
       {:scrivener_ecto, ">= 2.2.0"},
       {:scrivener_html, ">= 1.8.0"},
       {:bamboo, ">= 1.3.0"},
