@@ -7,7 +7,7 @@ const CopyWebpackPlugin       = require('copy-webpack-plugin')
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-module.exports = {
+module.exports = () => ({
   mode:    isProduction ? 'production' : 'development',
   devtool: isProduction ? undefined : 'source-map',
   entry:   ['./js/app.js', './css/app.scss'],
@@ -73,4 +73,4 @@ module.exports = {
       phoenix: `${__dirname}/../deps/phoenix/web/static/js/phoenix.js`
     }
   }
-}
+})

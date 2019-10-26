@@ -3,7 +3,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p",
-    "watch": "webpack --watch-stdin --progress --color",
+    "watch": "webpack --watch-stdin --color",
     "lint": "eslint --quiet"
   },
   "dependencies": {
