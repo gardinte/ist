@@ -50,12 +50,13 @@ module.exports = {
           {
             loader:  'sass-loader',
             options: {
-              sourceMap:      !isProduction,
-              sourceComments: !isProduction,
-              includePaths:   [
-                Path.resolve(__dirname, 'node_modules/bulma'),
-                Path.resolve(__dirname, 'node_modules/video.js/dist')
-              ]
+              sourceMap:   !isProduction,
+              sassOptions: {
+                includePaths: [
+                  Path.resolve(__dirname, 'node_modules/bulma'),
+                  Path.resolve(__dirname, 'node_modules/video.js/dist')
+                ]
+              }
             }
           }
         ]

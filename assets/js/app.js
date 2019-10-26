@@ -9,4 +9,8 @@ import 'phoenix_html'
 import './font_awesome'
 import './stimulus'
 import './turbolinks'
-import 'video.js'
+import videojs from 'video.js'
+
+window.videojs = videojs
+
+import '@videojs/http-streaming'
