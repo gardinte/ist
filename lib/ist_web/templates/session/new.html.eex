@@ -23,7 +23,7 @@
 
               <div class="field">
                 <p class="control has-text-centered">
-                  <%= submit dgettext("sessions", "Login"), class: "button is-primary is-medium" %>
+                  <%= submit dgettext("sessions", "Login"), class: "button is-dark is-medium" %>
                 </p>
               </div>
             <% end %>
