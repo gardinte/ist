@@ -2,9 +2,9 @@ language: elixir
 dist: xenial
 sudo: false
 elixir:
-  - 1.9
+  - 1.10
 otp_release:
-  - 22.1
+  - 22.3
 addons:
   postgresql: 10
 services:
