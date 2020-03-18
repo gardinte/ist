@@ -14,7 +14,7 @@ RUN mkdir -p $APP_HOME
 
 WORKDIR $APP_HOME
 
-ADD mix.* $APP_HOME/
+COPY mix.* $APP_HOME/
 
 RUN mix local.hex --force         && \
     mix local.rebar --force       && \
@@ -31,8 +31,8 @@ ARG APP_HOME
 
 RUN mkdir -p $APP_HOME/assets && mkdir -p $APP_HOME/deps
 
-ADD assets/package.json $APP_HOME/assets
-ADD assets/yarn.lock $APP_HOME/assets
+COPY assets/package.json $APP_HOME/assets
+COPY assets/yarn.lock $APP_HOME/assets
 
 COPY --from=assets_deps $APP_HOME/deps/phoenix $APP_HOME/deps/phoenix
 COPY --from=assets_deps $APP_HOME/deps/phoenix_html $APP_HOME/deps/phoenix_html
@@ -41,7 +41,7 @@ WORKDIR $APP_HOME/assets
 
 RUN yarn install
 
-ADD . $APP_HOME
+COPY . $APP_HOME
 
 RUN yarn build
 
@@ -61,13 +61,13 @@ RUN mkdir -p $APP_HOME
 
 WORKDIR $APP_HOME
 
-ADD mix.* $APP_HOME/
+COPY mix.* $APP_HOME/
 
 RUN mix local.hex --force         && \
     mix local.rebar --force       && \
     mix deps.get --only $MIX_ENV
 
-ADD . $APP_HOME
+COPY . $APP_HOME
 COPY --from=assets_build $APP_HOME/priv/static ./priv/static
 RUN mix phx.digest && mix release
 
@@ -75,20 +75,20 @@ RUN mix phx.digest && mix release
 # --- Release image ----
 # ----------------------
 FROM alpine
-# Needs to be matched with elixir:alpine version
 
 ARG APP_HOME
+ENV USER nobody
 
 RUN apk add --update --no-cache ncurses
-RUN mkdir -p $APP_HOME
+RUN mkdir -p $APP_HOME && chown -R $USER: $APP_HOME
 
 WORKDIR $APP_HOME
 
 COPY --from=build $APP_HOME/_build/prod/rel/ist ./
 
-RUN chown -R nobody: $APP_HOME
+RUN chown -R $USER: $APP_HOME
 
-USER nobody
+USER $USER
 
 ENV ELIXIR_APP_PORT=4000 BEAM_PORT=14000 ERL_EPMD_PORT=24000
 EXPOSE $ELIXIR_APP_PORT $BEAM_PORT $ERL_EPMD_PORT

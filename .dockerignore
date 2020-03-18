@@ -11,4 +11,3 @@ Dockerfile
 priv/static/*
 erl_crash.dump
 *.ez
-ist-*.tar
