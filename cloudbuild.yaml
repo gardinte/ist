@@ -59,3 +59,5 @@ substitutions:
   _K8S_NAMESPACE: 'development'
   _K8S_LABELS: 'app=gardinte-app'
   _IMAGE_NAME: 'gcr.io/gardinfra-development/ist'
+
+timeout: '1200s'
