@@ -2,26 +2,29 @@ defmodule IstWeb.Router do
   use IstWeb, :router
 
   @csp [
-    "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'",
-    "style-src 'self' 'unsafe-inline'"
+    "default-src 'self' data: http: https:",
+    "img-src 'self' https://storage.googleapis.com",
+    "script-src 'self' 'unsafe-inline' resource:",
+    "style-src 'self' 'unsafe-inline'",
+    "worker-src blob:",
+    "media-src http: https: blob:"
   ]
 
   @csp_headers %{"content-security-policy" => Enum.join(@csp, ";")}
 
   pipeline :browser do
-    plug(:accepts, ["html"])
-    plug(:fetch_session)
-    plug(:fetch_flash)
-    plug(:fetch_current_session)
-    plug(:protect_from_forgery)
-    plug(:put_secure_browser_headers, @csp_headers)
-    plug(:put_cache_control_headers)
-    plug(:put_breadcrumb, name: "≡", url: "/")
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :fetch_current_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers, @csp_headers
+    plug :put_cache_control_headers
+    plug :put_breadcrumb, name: "≡", url: "/"
   end
 
   pipeline :api do
-    plug(:accepts, ["json"])
+    plug :accepts, ["json"]
   end
 
   if Mix.env() == :dev do
@@ -29,9 +32,9 @@ defmodule IstWeb.Router do
   end
 
   scope "/", IstWeb do
-    pipe_through(:browser)
+    pipe_through :browser
 
-    get("/", RootController, :index)
+    get "/", RootController, :index
 
     resources(
       "/sessions",
@@ -42,8 +45,8 @@ defmodule IstWeb.Router do
 
     # Accounts
 
-    resources("/passwords", PasswordController, only: [:new, :create, :edit, :update])
+    resources "/passwords", PasswordController, only: [:new, :create, :edit, :update]
 
-    resources("/users", UserController)
+    resources "/users", UserController
   end
 end

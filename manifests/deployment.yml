@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: gcr.io/k8s-gardinte-development/ist
+          image: gcr.io/gardinfra-development/ist
           ports:
             - containerPort: 4000
               name: gardinte-app
