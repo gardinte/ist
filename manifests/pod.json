@@ -7,8 +7,7 @@
         "name": "app",
         "image": "gcr.io/gardinfra-development/ist:latest",
         "args": [
-          "eval",
-          "Ist.Tasks.Release.migrate()"
+          "eval", "Ist.Tasks.Release.migrate()"
         ],
         "env": [
           {
@@ -37,16 +36,17 @@
                 "name": "gardinte-app-secrets"
               }
             }
+          },
+          {
+            "name": "BUCKET",
+            "valueFrom": {
+              "configMapKeyRef": {
+                "key": "bucket",
+                "name": "gardinte-app-config"
+              }
+            }
           }
         ]
-      }
-    ],
-    "volumes": [
-      {
-        "name": "secret-volume",
-        "secret": {
-          "secretName": "gardinte-app-secrets"
-        }
       }
     ],
     "restartPolicy": "Never"
