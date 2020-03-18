@@ -5,7 +5,7 @@
     "containers": [
       {
         "name": "app",
-        "image": "gcr.io/k8s-gardinte-development/ist:latest",
+        "image": "gcr.io/gardinfra-development/ist:latest",
         "args": ["migrate"],
         "env": [
           {

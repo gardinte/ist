@@ -58,4 +58,4 @@ substitutions:
   _K8S_RUN_POD_OVERRIDES: 'manifests/pod.json'
   _K8S_NAMESPACE: 'development'
   _K8S_LABELS: 'app=gardinte-app'
-  _IMAGE_NAME: 'gcr.io/k8s-gardinte-development/ist'
+  _IMAGE_NAME: 'gcr.io/gardinfra-development/ist'
