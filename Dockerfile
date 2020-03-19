@@ -78,6 +78,7 @@ FROM alpine
 
 ARG APP_HOME
 ENV USER nobody
+ENV MIX_ENV prod
 
 RUN apk add --update --no-cache ncurses
 RUN mkdir -p $APP_HOME && chown -R $USER: $APP_HOME
