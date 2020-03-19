@@ -9,13 +9,9 @@
 
       <div class="card-content">
         <h2 class="title"><%= fullname @user %></h2>
-
-        <ul>
-          <li>
-            <strong><%= dgettext("users", "Email") %></strong>:
-            <%= link @user.email, to: "mailto:#{@user.email}" %>
-          </li>
-        </ul>
+        <h3 class="subtitle">
+          <%= link @user.email, to: "mailto:#{@user.email}" %>
+        </h3>
       </div>
 
       <footer class="card-footer">
