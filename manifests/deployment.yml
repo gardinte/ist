@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gardinte-app
@@ -14,22 +14,37 @@ spec:
         app: gardinte-app
     spec:
       containers:
+        - name: nginx
+          image: nginx:alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: ltv-app
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /healthy
+              port: 80
+          volumeMounts:
+            - mountPath: /etc/nginx/nginx.conf
+              name: nginx-config-volume
+              subPath: nginx.conf
         - name: app
           image: gcr.io/gardinfra-development/ist
           ports:
             - containerPort: 4000
               name: gardinte-app
-              protocol: TCP
           livenessProbe:
             httpGet:
               path: /sessions/new
               port: 4000
-              scheme: HTTP
           readinessProbe:
             httpGet:
               path: /sessions/new
               port: 4000
-              scheme: HTTP
           env:
             - name: DATABASE_URL
               valueFrom:
@@ -46,7 +61,12 @@ spec:
                 secretKeyRef:
                   key: sendgridApiKey
                   name: gardinte-app-secrets
+            - name: BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  key: bucket
+                  name: gardinte-app-config
       volumes:
-        - name: secret-volume
-          secret:
-            secretName: gardinte-app-secrets
+        - name: nginx-config-volume
+          configMap:
+            name: gardinte-app-config-nginx
