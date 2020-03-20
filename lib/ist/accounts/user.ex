@@ -7,16 +7,16 @@ defmodule Ist.Accounts.User do
   alias Ist.Repo
 
   schema "users" do
-    field(:email, :string)
-    field(:lastname, :string)
-    field(:name, :string)
-    field(:password_hash, :string)
-    field(:password, :string, virtual: true)
-    field(:password_reset_token, :string)
-    field(:password_reset_sent_at, :utc_datetime)
-    field(:lock_version, :integer, default: 1)
+    field :email, :string
+    field :lastname, :string
+    field :name, :string
+    field :password_hash, :string
+    field :password, :string, virtual: true
+    field :password_reset_token, :string
+    field :password_reset_sent_at, :utc_datetime
+    field :lock_version, :integer, default: 1
 
-    belongs_to(:account, Account)
+    belongs_to :account, Account
 
     timestamps()
   end

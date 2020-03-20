@@ -4,8 +4,8 @@ defmodule IstWeb.UserController do
   alias Ist.Accounts
   alias Ist.Accounts.User
 
-  plug(:authenticate)
-  plug(:put_breadcrumb, name: dgettext("users", "Users"), url: "/users")
+  plug :authenticate
+  plug :put_breadcrumb, name: dgettext("users", "Users"), url: "/users"
 
   def action(%{assigns: %{current_session: session}} = conn, _) do
     apply(__MODULE__, action_name(conn), [conn, conn.params, session])

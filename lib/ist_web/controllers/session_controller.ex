@@ -1,7 +1,7 @@
 defmodule IstWeb.SessionController do
   use IstWeb, :controller
 
-  plug(:authenticate when action in [:delete])
+  plug :authenticate when action in [:delete]
 
   def new(%{assigns: %{current_session: session}} = conn, _params)
       when is_map(session) do

@@ -8,11 +8,11 @@ defmodule Ist.Accounts.Account do
   alias Ist.Accounts.{Account, User}
 
   schema "accounts" do
-    field(:db_prefix, :string)
-    field(:name, :string)
-    field(:lock_version, :integer, default: 1)
+    field :db_prefix, :string
+    field :name, :string
+    field :lock_version, :integer, default: 1
 
-    has_many(:users, User)
+    has_many :users, User
 
     timestamps()
   end
