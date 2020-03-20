@@ -30,7 +30,13 @@ defmodule IstWeb.DeviceViewTest do
   end
 
   test "renders edit.html", %{conn: conn} do
-    device = %Device{ id: "1", name: "Camera 1", description: "Lobby", url: "rtsp://localhost/camera_1" }
+    device = %Device{
+      id: "1",
+      name: "Camera 1",
+      description: "Lobby",
+      url: "rtsp://localhost/camera_1"
+    }
+
     changeset = test_account() |> Recorder.change_device(device)
 
     content =
@@ -44,7 +50,13 @@ defmodule IstWeb.DeviceViewTest do
   end
 
   test "renders show.html", %{conn: conn} do
-    device = %Device{ id: "1", name: "Camera 1", description: "Lobby", url: "rtsp://localhost/camera_1" }
+    device = %Device{
+      id: "1",
+      name: "Camera 1",
+      description: "Lobby",
+      url: "rtsp://localhost/camera_1"
+    }
+
     content = render_to_string(DeviceView, "show.html", conn: conn, device: device)
 
     assert String.contains?(content, device.name)

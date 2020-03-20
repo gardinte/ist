@@ -31,6 +31,7 @@ defmodule IstWeb.DeviceController do
         conn
         |> put_flash(:info, dgettext("devices", "Device created successfully."))
         |> redirect(to: Routes.device_path(conn, :show, device))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -61,6 +62,7 @@ defmodule IstWeb.DeviceController do
         conn
         |> put_flash(:info, dgettext("devices", "Device updated successfully."))
         |> redirect(to: Routes.device_path(conn, :show, device))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", device: device, changeset: changeset)
     end
@@ -76,27 +78,28 @@ defmodule IstWeb.DeviceController do
   end
 
   defp render_index(conn, %{total_entries: 0}), do: render(conn, "empty.html")
+
   defp render_index(conn, page) do
     render(conn, "index.html", devices: page.entries, page: page)
   end
 
   defp put_new_breadcrumb(conn) do
     name = dgettext("devices", "New device")
-    url  = Routes.device_path(conn, :new)
+    url = Routes.device_path(conn, :new)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_show_breadcrumb(conn, device) do
     name = dgettext("devices", "Device")
-    url  = Routes.device_path(conn, :show, device)
+    url = Routes.device_path(conn, :show, device)
 
     conn |> put_breadcrumb(name, url)
   end
 
   defp put_edit_breadcrumb(conn, device) do
     name = dgettext("devices", "Edit device")
-    url  = Routes.device_path(conn, :edit, device)
+    url = Routes.device_path(conn, :edit, device)
 
     conn |> put_breadcrumb(name, url)
   end
