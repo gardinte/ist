@@ -1,0 +1,36 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h2 class="card-header-title">
+          <%= dgettext("devices", "Device") %>
+        </h2>
+      </header>
+
+      <div class="card-content">
+        <h2 class="title"><%= @device.name %></h2>
+        <h3 class="subtitle">
+          <%= link @device.url, to: @device.url %>
+        </h3>
+
+        <%= if show_description? @device do %>
+          <div class="content is-small">
+            <%= text_to_html @device.description %>
+          </div>
+        <% end %>
+      </div>
+
+      <footer class="card-footer">
+        <%= link dgettext("devices", "Edit"), to: Routes.device_path(@conn, :edit, @device), class: "card-footer-item" %>
+      </footer>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <span><%= link dgettext("devices", "Back"), to: Routes.device_path(@conn, :index) %></span>
+    </p>
+  </div>
+</footer>

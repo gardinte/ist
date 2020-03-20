@@ -1,0 +1,25 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="card">
+          <header class="card-header">
+            <h2 class="card-header-title">
+              <%= dgettext("devices", "Edit device") %>
+            </h2>
+          </header>
+
+          <%= render "_form.html", Map.put(assigns, :action, Routes.device_path(@conn, :update, @device)) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <span><%= link dgettext("devices", "Back"), to: Routes.device_path(@conn, :index) %></span>
+    </p>
+  </div>
+</footer>

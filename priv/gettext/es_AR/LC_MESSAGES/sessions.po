@@ -32,7 +32,7 @@ msgstr "Ingreso"
 msgid "Invalid email/password combination"
 msgstr "El usuario y/o contraseña no es válido"
 
-#: lib/ist_web/templates/layout/_menu.html.eex:43
+#: lib/ist_web/templates/layout/_menu.html.eex:47
 msgid "Logout"
 msgstr "Cerrar sesión"
 

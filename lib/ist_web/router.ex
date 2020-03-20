@@ -48,5 +48,9 @@ defmodule IstWeb.Router do
     resources "/passwords", PasswordController, only: [:new, :create, :edit, :update]
 
     resources "/users", UserController
+
+    # Recorder
+
+    resources "/devices", DeviceController
   end
 end

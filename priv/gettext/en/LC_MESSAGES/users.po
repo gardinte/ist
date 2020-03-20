@@ -80,7 +80,7 @@ msgid "User updated successfully."
 msgstr ""
 
 #: lib/ist_web/controllers/user_controller.ex:8
-#: lib/ist_web/templates/layout/_menu.html.eex:28 lib/ist_web/templates/user/index.html.eex:6
+#: lib/ist_web/templates/layout/_menu.html.eex:32 lib/ist_web/templates/user/index.html.eex:6
 msgid "Users"
 msgstr ""
 

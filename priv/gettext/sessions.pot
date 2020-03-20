@@ -32,7 +32,7 @@ msgstr ""
 msgid "Invalid email/password combination"
 msgstr ""
 
-#: lib/ist_web/templates/layout/_menu.html.eex:43
+#: lib/ist_web/templates/layout/_menu.html.eex:47
 msgid "Logout"
 msgstr ""
 

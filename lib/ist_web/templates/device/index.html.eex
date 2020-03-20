@@ -1,0 +1,50 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h2 class="card-header-title">
+          <%= dgettext("devices", "Devices") %>
+        </h2>
+      </header>
+
+      <div class="card-content">
+        <table class="table is-striped is-hoverable is-narrow is-fullwidth">
+          <thead>
+            <tr>
+              <th><%= dgettext("devices", "Name") %></th>
+              <th><%= dgettext("devices", "URL") %></th>
+
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for device <- @devices do %>
+              <tr>
+                <td><%= device.name %></td>
+                <td><%= device.url %></td>
+
+                <td>
+                  <div class="buttons has-addons is-right">
+                    <%= link_to_show   @conn, device %>
+                    <%= link_to_edit   @conn, device %>
+                    <%= link_to_delete @conn, device %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= pagination_links @conn, @page %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <%= link dgettext("devices", "New device"), to: Routes.device_path(@conn, :new), class: "button" %>
+    </p>
+  </div>
+</footer>

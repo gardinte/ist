@@ -16,6 +16,10 @@
 
     <div class="navbar-menu" data-target="menu.options">
       <div class="navbar-start">
+        <%= menu_item @conn, to: Routes.device_path(@conn, :index) do %>
+          <%= dgettext("devices", "Devices") %>
+        <% end %>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">
             <span class="icon">

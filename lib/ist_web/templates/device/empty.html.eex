@@ -1,0 +1,17 @@
+<section class="hero is-medium is-light is-bold">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h1 class="title">
+        <%= dgettext("devices", "Looks like you have no devices.") %>
+      </h1>
+
+      <h2 class="subtitle">
+        <%= dgettext("devices", "Let's create one...") %>
+      </h2>
+
+      <p>
+        <%= link dgettext("devices", "New device"), to: Routes.device_path(@conn, :new), class: "button is-primary is-large" %>
+      </p>
+    </div>
+  </div>
+</section>
