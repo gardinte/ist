@@ -16,8 +16,7 @@ msgid "Are you sure?"
 msgstr ""
 
 #: lib/ist_web/templates/user/edit.html.eex:22
-#: lib/ist_web/templates/user/new.html.eex:22
-#: lib/ist_web/templates/user/show.html.eex:31
+#: lib/ist_web/templates/user/new.html.eex:22 lib/ist_web/templates/user/show.html.eex:27
 msgid "Back"
 msgstr ""
 
@@ -25,7 +24,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: lib/ist_web/templates/user/show.html.eex:22 lib/ist_web/views/user_view.ex:21
+#: lib/ist_web/templates/user/show.html.eex:18 lib/ist_web/views/user_view.ex:21
 msgid "Edit"
 msgstr ""
 
@@ -35,10 +34,8 @@ msgid "Edit user"
 msgstr ""
 
 #: lib/ist_web/templates/password/new.html.eex:18
-#: lib/ist_web/templates/password/new.html.eex:19
-#: lib/ist_web/templates/user/_form.html.eex:11
+#: lib/ist_web/templates/password/new.html.eex:19 lib/ist_web/templates/user/_form.html.eex:11
 #: lib/ist_web/templates/user/index.html.eex:16
-#: lib/ist_web/templates/user/show.html.eex:15
 msgid "Email"
 msgstr ""
 
@@ -53,8 +50,7 @@ msgid "Name"
 msgstr ""
 
 #: lib/ist_web/controllers/user_controller.ex:81
-#: lib/ist_web/templates/user/index.html.eex:49
-#: lib/ist_web/templates/user/new.html.eex:8
+#: lib/ist_web/templates/user/index.html.eex:49 lib/ist_web/templates/user/new.html.eex:8
 msgid "New user"
 msgstr ""
 
@@ -84,14 +80,12 @@ msgid "User updated successfully."
 msgstr ""
 
 #: lib/ist_web/controllers/user_controller.ex:8
-#: lib/ist_web/templates/layout/_menu.html.eex:28
-#: lib/ist_web/templates/user/index.html.eex:6
+#: lib/ist_web/templates/layout/_menu.html.eex:28 lib/ist_web/templates/user/index.html.eex:6
 msgid "Users"
 msgstr ""
 
 #: lib/ist_web/templates/password/edit.html.eex:13
-#: lib/ist_web/templates/password/edit.html.eex:14
-#: lib/ist_web/templates/user/_form.html.eex:12
+#: lib/ist_web/templates/password/edit.html.eex:14 lib/ist_web/templates/user/_form.html.eex:12
 msgid "Password"
 msgstr ""
 
@@ -104,7 +98,6 @@ msgid "Update"
 msgstr ""
 
 #: lib/ist_web/templates/password/edit.html.eex:18
-#: lib/ist_web/templates/password/edit.html.eex:19
-#: lib/ist_web/templates/user/_form.html.eex:13
+#: lib/ist_web/templates/password/edit.html.eex:19 lib/ist_web/templates/user/_form.html.eex:13
 msgid "Password confirmation"
 msgstr ""
