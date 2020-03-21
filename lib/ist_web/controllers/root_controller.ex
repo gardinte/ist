@@ -3,7 +3,7 @@ defmodule IstWeb.RootController do
 
   def index(%{assigns: %{current_session: session}} = conn, _params)
       when is_map(session) do
-    redirect(conn, to: Routes.user_path(conn, :index))
+    redirect(conn, to: Routes.device_path(conn, :index))
   end
 
   def index(conn, _params) do
