@@ -73,6 +73,18 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
     end
   end
 
+  describe "show" do
+    setup [:create_<%= schema.singular %>]
+
+    @tag login_as: "test@user.com"
+    test "show <%= schema.singular %>", %{conn: conn, <%= schema.singular %>: <%= schema.singular %>} do
+      conn     = get conn, Routes.<%= schema.route_helper %>_path(conn, :show, <%= schema.singular %>)
+      response = html_response(conn, 200)
+
+      assert response =~ <%= schema.singular %>.<%= schema.types |> Enum.at(0) |> Tuple.to_list() |> hd() %>
+    end
+  end
+
   describe "edit <%= schema.singular %>" do
     setup [:create_<%= schema.singular %>]
 

@@ -72,6 +72,18 @@ defmodule IstWeb.UserControllerTest do
     end
   end
 
+  describe "show" do
+    setup [:create_user]
+
+    @tag login_as: "test@user.com"
+    test "show user", %{conn: conn, user: user} do
+      conn = get(conn, Routes.user_path(conn, :show, user))
+      response = html_response(conn, 200)
+
+      assert response =~ user.name
+    end
+  end
+
   describe "edit user" do
     setup [:create_user]
 

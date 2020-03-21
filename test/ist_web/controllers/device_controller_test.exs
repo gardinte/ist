@@ -84,6 +84,18 @@ defmodule IstWeb.DeviceControllerTest do
     end
   end
 
+  describe "show" do
+    setup [:create_device]
+
+    @tag login_as: "test@device.com"
+    test "show device", %{conn: conn, device: device} do
+      conn = get(conn, Routes.device_path(conn, :show, device))
+      response = html_response(conn, 200)
+
+      assert response =~ device.name
+    end
+  end
+
   describe "edit device" do
     setup [:create_device]
 
