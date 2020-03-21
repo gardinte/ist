@@ -17,7 +17,10 @@
       </div>
 
       <footer class="card-footer">
-        <%%= link dgettext("<%= schema.plural %>", "Edit"), to: Routes.<%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "card-footer-item" %>
+        <%%= link to: Routes.<%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "card-footer-item" do %>
+          <i class="fas fa-pencil-alt mrs" aria-hidden="true"></i>
+          <%%= dgettext("<%= schema.plural %>", "Edit") %>
+        <%% end %>
       </footer>
     </div>
   </div>

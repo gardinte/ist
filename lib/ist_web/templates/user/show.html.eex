@@ -15,7 +15,10 @@
       </div>
 
       <footer class="card-footer">
-        <%= link dgettext("users", "Edit"), to: Routes.user_path(@conn, :edit, @user), class: "card-footer-item" %>
+        <%= link to: Routes.user_path(@conn, :edit, @user), class: "card-footer-item" do %>
+          <i class="fas fa-pencil-alt mrs" aria-hidden="true"></i>
+          <%= dgettext("users", "Edit") %>
+        <% end %>
       </footer>
     </div>
   </div>
