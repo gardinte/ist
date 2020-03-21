@@ -10,20 +10,20 @@
 msgid ""
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:26
+#: lib/ist_web/views/device_view.ex:28
 msgid "Are you sure?"
 msgstr ""
 
 #: lib/ist_web/templates/device/edit.html.eex:22
-#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:33
+#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:41
 msgid "Back"
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:45
+#: lib/ist_web/views/device_view.ex:50
 msgid "Create"
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:23
+#: lib/ist_web/views/device_view.ex:25
 msgid "Delete"
 msgstr ""
 
@@ -31,7 +31,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: lib/ist_web/controllers/device_controller.ex:91
 #: lib/ist_web/templates/device/show.html.eex:6
 msgid "Device"
 msgstr ""
@@ -40,25 +39,26 @@ msgstr ""
 msgid "Device created successfully."
 msgstr ""
 
-#: lib/ist_web/controllers/device_controller.ex:74
+#: lib/ist_web/controllers/device_controller.ex:76
 msgid "Device deleted successfully."
 msgstr ""
 
-#: lib/ist_web/controllers/device_controller.ex:62
+#: lib/ist_web/controllers/device_controller.ex:63
 msgid "Device updated successfully."
 msgstr ""
 
 #: lib/ist_web/controllers/device_controller.ex:8
-#: lib/ist_web/templates/device/index.html.eex:6 lib/ist_web/templates/layout/_menu.html.eex:20
+#: lib/ist_web/controllers/recording_controller.ex:7 lib/ist_web/templates/device/index.html.eex:6
+#: lib/ist_web/templates/layout/_menu.html.eex:20
 msgid "Devices"
 msgstr ""
 
-#: lib/ist_web/templates/device/show.html.eex:24
-#: lib/ist_web/views/device_view.ex:16
+#: lib/ist_web/templates/device/show.html.eex:31
+#: lib/ist_web/views/device_view.ex:17
 msgid "Edit"
 msgstr ""
 
-#: lib/ist_web/controllers/device_controller.ex:98
+#: lib/ist_web/controllers/device_controller.ex:101
 #: lib/ist_web/templates/device/edit.html.eex:8
 msgid "Edit device"
 msgstr ""
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: lib/ist_web/controllers/device_controller.ex:84
+#: lib/ist_web/controllers/device_controller.ex:87
 #: lib/ist_web/templates/device/empty.html.eex:13 lib/ist_web/templates/device/index.html.eex:47
 #: lib/ist_web/templates/device/new.html.eex:8
 msgid "New device"
@@ -90,11 +90,15 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:46
+#: lib/ist_web/views/device_view.ex:51
 msgid "Update"
 msgstr ""
 
 #: lib/ist_web/templates/device/_form.html.eex:10
 #: lib/ist_web/templates/device/index.html.eex:15
 msgid "URL"
+msgstr ""
+
+#: lib/ist_web/templates/device/show.html.eex:26
+msgid "Show recordings"
 msgstr ""

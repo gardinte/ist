@@ -11,20 +11,20 @@ msgstr ""
 "Language: es_AR\n"
 "Plural-Forms: nplurals=2\n"
 
-#: lib/ist_web/views/device_view.ex:26
+#: lib/ist_web/views/device_view.ex:28
 msgid "Are you sure?"
 msgstr "¿Está seguro de borrar este dispositivo?"
 
 #: lib/ist_web/templates/device/edit.html.eex:22
-#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:33
+#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:41
 msgid "Back"
 msgstr "Listado de dispositivos"
 
-#: lib/ist_web/views/device_view.ex:45
+#: lib/ist_web/views/device_view.ex:50
 msgid "Create"
 msgstr "Crear nuevo dispositivo"
 
-#: lib/ist_web/views/device_view.ex:23
+#: lib/ist_web/views/device_view.ex:25
 msgid "Delete"
 msgstr "Borrar dispositivo"
 
@@ -32,7 +32,6 @@ msgstr "Borrar dispositivo"
 msgid "Description"
 msgstr "Descripción"
 
-#: lib/ist_web/controllers/device_controller.ex:91
 #: lib/ist_web/templates/device/show.html.eex:6
 msgid "Device"
 msgstr "Dispositivo"
@@ -41,25 +40,26 @@ msgstr "Dispositivo"
 msgid "Device created successfully."
 msgstr "Dispositivo creado correctamete."
 
-#: lib/ist_web/controllers/device_controller.ex:74
+#: lib/ist_web/controllers/device_controller.ex:76
 msgid "Device deleted successfully."
 msgstr "Dispositivo eliminado correctamete."
 
-#: lib/ist_web/controllers/device_controller.ex:62
+#: lib/ist_web/controllers/device_controller.ex:63
 msgid "Device updated successfully."
 msgstr "Dispositivo actualizado correctamete."
 
 #: lib/ist_web/controllers/device_controller.ex:8
-#: lib/ist_web/templates/device/index.html.eex:6 lib/ist_web/templates/layout/_menu.html.eex:20
+#: lib/ist_web/controllers/recording_controller.ex:7 lib/ist_web/templates/device/index.html.eex:6
+#: lib/ist_web/templates/layout/_menu.html.eex:20
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: lib/ist_web/templates/device/show.html.eex:24
-#: lib/ist_web/views/device_view.ex:16
+#: lib/ist_web/templates/device/show.html.eex:31
+#: lib/ist_web/views/device_view.ex:17
 msgid "Edit"
 msgstr "Editar dispositivo"
 
-#: lib/ist_web/controllers/device_controller.ex:98
+#: lib/ist_web/controllers/device_controller.ex:101
 #: lib/ist_web/templates/device/edit.html.eex:8
 msgid "Edit device"
 msgstr "Editar dispositivo"
@@ -77,7 +77,7 @@ msgstr "Parece que no hay ningún dispositivo."
 msgid "Name"
 msgstr "Nombre"
 
-#: lib/ist_web/controllers/device_controller.ex:84
+#: lib/ist_web/controllers/device_controller.ex:87
 #: lib/ist_web/templates/device/empty.html.eex:13 lib/ist_web/templates/device/index.html.eex:47
 #: lib/ist_web/templates/device/new.html.eex:8
 msgid "New device"
@@ -91,7 +91,7 @@ msgstr "Oops, algo salió mal, por favor verifique los errores debajo."
 msgid "Show"
 msgstr "Ver dispositivo"
 
-#: lib/ist_web/views/device_view.ex:46
+#: lib/ist_web/views/device_view.ex:51
 msgid "Update"
 msgstr "Actualizar dispositivo"
 
@@ -99,3 +99,7 @@ msgstr "Actualizar dispositivo"
 #: lib/ist_web/templates/device/index.html.eex:15
 msgid "URL"
 msgstr "URL"
+
+#: lib/ist_web/templates/device/show.html.eex:26
+msgid "Show recordings"
+msgstr "Ver grabaciones"

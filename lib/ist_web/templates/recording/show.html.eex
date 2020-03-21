@@ -1,0 +1,36 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h2 class="card-header-title">
+          <%= dgettext("recordings", "Recording") %>
+        </h2>
+      </header>
+
+      <div class="card-content">
+        <ul>
+          <li>
+            <strong><%= dgettext("recordings", "File") %></strong>:
+            <%= @recording.file %>
+          </li>
+          <li>
+            <strong><%= dgettext("recordings", "Started at") %></strong>:
+            <%= @recording.started_at %>
+          </li>
+          <li>
+            <strong><%= dgettext("recordings", "Ended at") %></strong>:
+            <%= @recording.ended_at %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <span><%= link dgettext("recordings", "Back"), to: Routes.device_recording_path(@conn, :index, @device) %></span>
+    </p>
+  </div>
+</footer>

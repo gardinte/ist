@@ -16,7 +16,7 @@ msgid "Are you sure?"
 msgstr ""
 
 #: lib/ist_web/templates/user/edit.html.eex:22
-#: lib/ist_web/templates/user/new.html.eex:22 lib/ist_web/templates/user/show.html.eex:27
+#: lib/ist_web/templates/user/new.html.eex:22 lib/ist_web/templates/user/show.html.eex:30
 msgid "Back"
 msgstr ""
 
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: lib/ist_web/templates/user/show.html.eex:18 lib/ist_web/views/user_view.ex:21
+#: lib/ist_web/templates/user/show.html.eex:20 lib/ist_web/views/user_view.ex:21
 msgid "Edit"
 msgstr ""
 

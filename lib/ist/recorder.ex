@@ -112,4 +112,91 @@ defmodule Ist.Recorder do
   def change_device(%Account{} = account, %Device{} = device) do
     Device.changeset(account, device, %{})
   end
+
+  alias Ist.Recorder.Recording
+
+  @doc """
+  Returns the list of recordings.
+
+  ## Examples
+
+      iex> list_recordings(%Account{}, %Device{}, %{})
+      [%Recording{}, ...]
+
+  """
+  def list_recordings(account, device, params) do
+    Recording
+    |> prefixed(account)
+    |> where(device_id: ^device.id)
+    |> Repo.paginate(params)
+  end
+
+  @doc """
+  Gets a single recording.
+
+  Raises `Ecto.NoResultsError` if the Recording does not exist.
+
+  ## Examples
+
+      iex> get_recording!(%Account{}, %Device{}, 123)
+      %Recording{}
+
+      iex> get_recording!(%Account{}, %Device{}, 456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_recording!(account, device, id) do
+    Recording
+    |> prefixed(account)
+    |> where(device_id: ^device.id)
+    |> Repo.get!(id)
+  end
+
+  @doc """
+  Creates a recording.
+
+  ## Examples
+
+      iex> create_recording(%Session{}, %{field: value})
+      {:ok, %Recording{}}
+
+      iex> create_recording(%Session{}, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_recording(%Session{account: account, user: user}, attrs) do
+    account
+    |> Recording.changeset(%Recording{}, attrs)
+    |> Map.put(:repo_opts, prefix: prefix(account))
+    |> Trail.insert(prefix: prefix(account), originator: user)
+  end
+
+  @doc """
+  Deletes a Recording.
+
+  ## Examples
+
+      iex> delete_recording(%Session{}, recording)
+      {:ok, %Recording{}}
+
+      iex> delete_recording(%Session{}, recording)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_recording(%Session{account: account, user: user}, %Recording{} = recording) do
+    Trail.delete(recording, prefix: prefix(account), originator: user)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking recording changes.
+
+  ## Examples
+
+      iex> change_recording(%Account{}, recording)
+      %Ecto.Changeset{source: %Recording{}}
+
+  """
+  def change_recording(%Account{} = account, %Recording{} = recording) do
+    Recording.changeset(account, recording, %{})
+  end
 end

@@ -1,0 +1,76 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es_AR\n"
+"Plural-Forms: nplurals=2\n"
+
+#: lib/ist_web/views/recording_view.ex:18
+msgid "Are you sure?"
+msgstr "¿Está seguro de borrar esta grabación?"
+
+#: lib/ist_web/templates/recording/show.html.eex:33
+msgid "Back"
+msgstr "Listado de grabaciones"
+
+#: lib/ist_web/views/recording_view.ex:15
+msgid "Delete"
+msgstr "Borrar grabación"
+
+#: lib/ist_web/templates/recording/index.html.eex:16
+#: lib/ist_web/templates/recording/show.html.eex:21
+msgid "Ended at"
+msgstr "Finalizado"
+
+#: lib/ist_web/templates/recording/index.html.eex:14
+#: lib/ist_web/templates/recording/show.html.eex:13
+msgid "File"
+msgstr "Archivo"
+
+#: lib/ist_web/templates/recording/empty.html.eex:5
+msgid "Looks like there is no recordings."
+msgstr "Parece que no hay ninguna grabación."
+
+#: lib/ist_web/templates/recording/empty.html.eex:13
+msgid "Or back to %{device_link}"
+msgstr "O volver a %{device_link}"
+
+#: lib/ist_web/controllers/recording_controller.ex:53
+#: lib/ist_web/templates/recording/show.html.eex:6
+msgid "Recording"
+msgstr "Grabación"
+
+#: lib/ist_web/controllers/recording_controller.ex:40
+msgid "Recording deleted successfully."
+msgstr "Grabación eliminada correctamente."
+
+#: lib/ist_web/controllers/recording_controller.ex:60
+msgid "Recordings"
+msgstr "Grabaciones"
+
+#: lib/ist_web/templates/recording/index.html.eex:6
+msgid "Recordings of %{device}"
+msgstr "Grabaciones de %{device}"
+
+#: lib/ist_web/views/recording_view.ex:7
+msgid "Show"
+msgstr "Ver grabación"
+
+#: lib/ist_web/templates/recording/index.html.eex:15
+#: lib/ist_web/templates/recording/show.html.eex:17
+msgid "Started at"
+msgstr "Inicio"
+
+#: lib/ist_web/templates/recording/empty.html.eex:9
+msgid "Wait a bit and %{refresh_link} this page."
+msgstr "Espere un momento y %{refresh_link} esta página."
+
+#: lib/ist_web/views/recording_view.ex:26
+msgid "refresh"
+msgstr "actualice"

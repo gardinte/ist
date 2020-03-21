@@ -1,0 +1,17 @@
+<section class="hero is-medium is-light is-bold">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h1 class="title">
+        <%= dgettext("recordings", "Looks like there is no recordings.") %>
+      </h1>
+
+      <h2 class="subtitle">
+        <%= raw dgettext("recordings", "Wait a bit and %{refresh_link} this page.", refresh_link: refresh_link(@conn, @device)) %>
+      </h2>
+
+      <p class="is-size-5">
+        <%= raw dgettext("recordings", "Or back to %{device_link}", device_link: device_link(@conn, @device)) %>
+      </p>
+    </div>
+  </div>
+</section>

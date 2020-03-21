@@ -91,7 +91,7 @@ defmodule IstWeb.DeviceController do
   end
 
   defp put_show_breadcrumb(conn, device) do
-    name = dgettext("devices", "Device")
+    name = device.name
     url = Routes.device_path(conn, :show, device)
 
     conn |> put_breadcrumb(name, url)

@@ -28,7 +28,7 @@ defmodule IstWeb.Router do
   end
 
   if Mix.env() == :dev do
-    forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
   end
 
   scope "/", IstWeb do
@@ -51,6 +51,8 @@ defmodule IstWeb.Router do
 
     # Recorder
 
-    resources "/devices", DeviceController
+    resources "/devices", DeviceController do
+      resources "/recordings", RecordingController, only: [:index, :show, :delete]
+    end
   end
 end

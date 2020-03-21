@@ -1,0 +1,51 @@
+<section class="section is-primary">
+  <div class="container">
+    <div class="card">
+      <header class="card-header">
+        <h2 class="card-header-title">
+          <%= dgettext("recordings", "Recordings of %{device}", device: @device.name) %>
+        </h2>
+      </header>
+
+      <div class="card-content">
+        <table class="table is-striped is-hoverable is-narrow is-fullwidth">
+          <thead>
+            <tr>
+              <th><%= dgettext("recordings", "File") %></th>
+              <th><%= dgettext("recordings", "Started at") %></th>
+              <th><%= dgettext("recordings", "Ended at") %></th>
+
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for recording <- @recordings do %>
+              <tr>
+                <td><%= recording.file %></td>
+                <td><%= recording.started_at %></td>
+                <td><%= recording.ended_at %></td>
+
+                <td>
+                  <div class="buttons has-addons is-right">
+                    <%= link_to_show   @conn, @device, recording %>
+                    <%= link_to_delete @conn, @device, recording %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= pagination_links @conn, @page, [@device], path: &Routes.device_recording_path/4 %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer is-primary">
+  <div class="container">
+    <p>
+      <%= link @device.name, to: Routes.device_path(@conn, :show, @device) %>
+    </p>
+  </div>
+</footer>

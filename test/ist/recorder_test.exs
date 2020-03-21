@@ -78,4 +78,68 @@ defmodule Ist.RecorderTest do
       assert %Ecto.Changeset{} = Recorder.change_device(account, device)
     end
   end
+
+  describe "recordings" do
+    alias Ist.Recorder.Recording
+
+    @valid_attrs %{
+      file: "some file",
+      started_at: DateTime.utc_now(),
+      ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
+      device_id: "1"
+    }
+    @invalid_attrs %{file: nil, started_at: nil, ended_at: nil, device_id: nil}
+
+    test "list_recordings/3 returns all recordings" do
+      {:ok, recording, account} = fixture(:recording)
+      entries = Recorder.list_recordings(account, recording.device, %{}).entries
+      recording_ids = Enum.map(entries, & &1.id)
+
+      assert recording_ids == [recording.id]
+    end
+
+    test "get_recording!/3 returns the recording with given id" do
+      {:ok, recording, account} = fixture(:recording)
+
+      assert Recorder.get_recording!(account, recording.device, recording.id).id == recording.id
+    end
+
+    test "create_recording/2 with valid data creates a recording" do
+      account = fixture(:seed_account)
+      session = %Session{account: account}
+      {:ok, device, _} = fixture(:device)
+      attributes = %{@valid_attrs | device_id: device.id}
+
+      assert {:ok, %Recording{} = recording} = Recorder.create_recording(session, attributes)
+      assert recording.device_id == device.id
+      assert recording.file == "some file"
+
+      assert DateTime.truncate(recording.started_at, :second) ==
+               DateTime.truncate(@valid_attrs.started_at, :second)
+
+      assert DateTime.truncate(recording.ended_at, :second) ==
+               DateTime.truncate(@valid_attrs.ended_at, :second)
+    end
+
+    test "create_recording/2 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Recorder.create_recording(%Session{}, @invalid_attrs)
+    end
+
+    test "delete_recording/2 deletes the recording" do
+      {:ok, recording, account} = fixture(:recording)
+      session = %Session{account: account}
+
+      assert {:ok, %Recording{}} = Recorder.delete_recording(session, recording)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Recorder.get_recording!(account, recording.device, recording.id)
+      end
+    end
+
+    test "change_recording/2 returns a recording changeset" do
+      {:ok, recording, account} = fixture(:recording)
+
+      assert %Ecto.Changeset{} = Recorder.change_recording(account, recording)
+    end
+  end
 end

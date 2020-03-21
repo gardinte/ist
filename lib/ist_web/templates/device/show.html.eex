@@ -21,7 +21,15 @@
       </div>
 
       <footer class="card-footer">
-        <%= link dgettext("devices", "Edit"), to: Routes.device_path(@conn, :edit, @device), class: "card-footer-item" %>
+        <%= link to: Routes.device_recording_path(@conn, :index, @device), class: "card-footer-item" do %>
+          <i class="fas fa-film mrs" aria-hidden="true"></i>
+          <%= dgettext("devices", "Show recordings") %>
+        <% end %>
+
+        <%= link to: Routes.device_path(@conn, :edit, @device), class: "card-footer-item" do %>
+          <i class="fas fa-pencil-alt mrs" aria-hidden="true"></i>
+          <%= dgettext("devices", "Edit") %>
+        <% end %>
       </footer>
     </div>
   </div>

@@ -1,0 +1,76 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#: lib/ist_web/views/recording_view.ex:18
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/ist_web/templates/recording/show.html.eex:33
+msgid "Back"
+msgstr ""
+
+#: lib/ist_web/views/recording_view.ex:15
+msgid "Delete"
+msgstr ""
+
+#: lib/ist_web/templates/recording/index.html.eex:16
+#: lib/ist_web/templates/recording/show.html.eex:21
+msgid "Ended at"
+msgstr ""
+
+#: lib/ist_web/templates/recording/index.html.eex:14
+#: lib/ist_web/templates/recording/show.html.eex:13
+msgid "File"
+msgstr ""
+
+#: lib/ist_web/templates/recording/empty.html.eex:5
+msgid "Looks like there is no recordings."
+msgstr ""
+
+#: lib/ist_web/templates/recording/empty.html.eex:13
+msgid "Or back to %{device_link}"
+msgstr ""
+
+#: lib/ist_web/controllers/recording_controller.ex:53
+#: lib/ist_web/templates/recording/show.html.eex:6
+msgid "Recording"
+msgstr ""
+
+#: lib/ist_web/controllers/recording_controller.ex:40
+msgid "Recording deleted successfully."
+msgstr ""
+
+#: lib/ist_web/controllers/recording_controller.ex:60
+msgid "Recordings"
+msgstr ""
+
+#: lib/ist_web/templates/recording/index.html.eex:6
+msgid "Recordings of %{device}"
+msgstr ""
+
+#: lib/ist_web/views/recording_view.ex:7
+msgid "Show"
+msgstr ""
+
+#: lib/ist_web/templates/recording/index.html.eex:15
+#: lib/ist_web/templates/recording/show.html.eex:17
+msgid "Started at"
+msgstr ""
+
+#: lib/ist_web/templates/recording/empty.html.eex:9
+msgid "Wait a bit and %{refresh_link} this page."
+msgstr ""
+
+#: lib/ist_web/views/recording_view.ex:26
+msgid "refresh"
+msgstr ""

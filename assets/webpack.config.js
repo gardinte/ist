@@ -54,6 +54,7 @@ module.exports = () => ({
               sassOptions: {
                 includePaths: [
                   Path.resolve(__dirname, 'node_modules/bulma'),
+                  Path.resolve(__dirname, 'node_modules/css-spacing/css'),
                   Path.resolve(__dirname, 'node_modules/video.js/dist')
                 ]
               }
