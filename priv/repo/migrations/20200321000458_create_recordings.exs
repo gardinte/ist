@@ -12,6 +12,9 @@ defmodule Ist.Repo.Migrations.CreateRecordings do
   defp do_change(prefix) do
     create table(:recordings, prefix: prefix) do
       add :file, :string, null: false
+      add :content_type, :string, null: false
+      add :size, :bigint, null: false
+      add :generation, :bigint, null: false
       add :started_at, :utc_datetime, null: false
       add :ended_at, :utc_datetime, null: false
       add :device_id, references(:devices, on_delete: :nilify_all)

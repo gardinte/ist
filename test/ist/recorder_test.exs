@@ -84,6 +84,9 @@ defmodule Ist.RecorderTest do
 
     @valid_attrs %{
       file: "some file",
+      content_type: "video/mp4",
+      size: 60000,
+      generation: 1,
       started_at: DateTime.utc_now(),
       ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
       device_id: "1"
