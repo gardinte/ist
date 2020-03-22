@@ -14,7 +14,7 @@ defmodule Ist.Accounts.Account do
 
     has_many :users, User
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 
   @doc false

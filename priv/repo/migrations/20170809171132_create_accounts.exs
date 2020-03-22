@@ -8,7 +8,7 @@ defmodule Ist.Repo.Migrations.CreateAccounts do
         add :db_prefix, :string, null: false
         add :lock_version, :integer, default: 1, null: false
 
-        timestamps()
+        timestamps type: :utc_datetime
       end
 
       create unique_index(:accounts, [:db_prefix])

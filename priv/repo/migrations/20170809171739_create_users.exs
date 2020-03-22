@@ -14,7 +14,7 @@ defmodule Ist.Repo.Migrations.CreateUsers do
 
         add :account_id, references(:accounts, on_delete: :delete_all), null: false
 
-        timestamps()
+        timestamps type: :utc_datetime
       end
 
       create unique_index(:users, [:email])

@@ -18,7 +18,7 @@ defmodule Ist.Accounts.User do
 
     belongs_to :account, Account
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 
   @cast_attrs [:name, :lastname, :email, :password, :lock_version]

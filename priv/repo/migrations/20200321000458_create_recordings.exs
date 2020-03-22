@@ -16,7 +16,7 @@ defmodule Ist.Repo.Migrations.CreateRecordings do
       add :ended_at, :utc_datetime, null: false
       add :device_id, references(:devices, on_delete: :nilify_all)
 
-      timestamps()
+      timestamps type: :utc_datetime
     end
 
     create index(:recordings, [:started_at], prefix: prefix)

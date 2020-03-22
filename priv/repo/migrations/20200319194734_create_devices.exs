@@ -17,7 +17,7 @@ defmodule Ist.Repo.Migrations.CreateDevices do
       add :url, :text, null: false
       add :lock_version, :integer, default: 1, null: false
 
-      timestamps()
+      timestamps type: :utc_datetime
     end
 
     create unique_index(:devices, [:uuid], prefix: prefix)

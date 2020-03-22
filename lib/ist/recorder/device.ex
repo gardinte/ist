@@ -15,7 +15,7 @@ defmodule Ist.Recorder.Device do
     field :url, :string
     field :lock_version, :integer, default: 1
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 
   @doc false

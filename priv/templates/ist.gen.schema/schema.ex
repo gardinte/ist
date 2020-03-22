@@ -15,7 +15,7 @@ defmodule <%= inspect schema.module %> do
 <% end %><%= for {_, k, _, _} <- schema.assocs do %>    field <%= inspect k %>, <%= if schema.binary_id do %>:binary_id<% else %>:id<% end %>
 <% end %>    field :lock_version, :integer, default: 1
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 
   @doc false

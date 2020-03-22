@@ -14,7 +14,7 @@ defmodule Ist.Recorder.Recording do
 
     belongs_to :device, Device
 
-    timestamps()
+    timestamps type: :utc_datetime
   end
 
   @doc false
