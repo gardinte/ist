@@ -1,7 +1,7 @@
 steps:
 
 - id: 'Test'
-  name: 'docker/compose:1.25.0-rc2-alpine'
+  name: 'docker/compose:latest'
   args: ['run', '-T', 'app', 'test']
 
 - id: 'Build'
