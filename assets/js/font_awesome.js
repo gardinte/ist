@@ -2,6 +2,7 @@ import {config, dom, library} from '@fortawesome/fontawesome-svg-core'
 import {
   faCheck,
   faCog,
+  faDownload,
   faEnvelope,
   faEye,
   faFilm,
@@ -19,6 +20,7 @@ config.mutateApproach     = 'sync'
 library.add(
   faCheck,
   faCog,
+  faDownload,
   faEnvelope,
   faEye,
   faFilm,

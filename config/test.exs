@@ -23,6 +23,16 @@ config :ist, Ist.Repo,
   hostname: System.get_env("DATABASE_HOST") || "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
+# Recording's bucket
+config :ist, bucket: "gardinfra-development-testing"
+
+# Argon
 config :argon2_elixir,
   t_cost: 1,
   m_cost: 5
+
+# PubSub
+config :psb,
+  process_topic: "development-testing-process",
+  publish_topic: "development-testing-publish",
+  project: "gardinfra-development"

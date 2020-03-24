@@ -31,6 +31,12 @@ defmodule Ist.RecorderTest do
       assert Recorder.get_device!(account, device.id) == device
     end
 
+    test "get_device_by_uuid!/2 returns the device with given uuid" do
+      {:ok, device, account} = fixture(:device)
+
+      assert Recorder.get_device_by_uuid!(account, device.uuid) == device
+    end
+
     test "create_device/2 with valid data creates a device" do
       account = fixture(:seed_account)
       session = %Session{account: account}

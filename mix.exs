@@ -41,14 +41,17 @@ defmodule Ist.Mixfile do
       {:ecto_sql, ">= 3.3.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_live_reload, ">= 1.2.0", only: :dev},
-      {:jason, ">= 1.1.0"},
+      {:jason, ">= 1.2.0", override: true},
       {:gettext, ">= 0.17.0"},
       {:plug_cowboy, ">= 2.1.0"},
       {:argon2_elixir, ">= 2.3.0"},
       {:scrivener_ecto, ">= 2.3.0"},
       {:scrivener_html, ">= 1.8.0"},
       {:bamboo, ">= 1.4.0"},
-      {:paper_trail, ">= 0.8.0"}
+      {:paper_trail, ">= 0.8.0"},
+      {:timex, ">= 3.6.0"},
+      {:guss, ">= 0.1.0"},
+      {:psb, ">= 0.1.0", github: "gardinte/psb", branch: "master"}
     ]
   end
 

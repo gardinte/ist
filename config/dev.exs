@@ -46,6 +46,15 @@ config :logger, :console, format: "[$level] $message\n"
 # Bamboo local adapter
 config :ist, Ist.Notifications.Mailer, adapter: Bamboo.LocalAdapter
 
+# Recording's bucket
+config :ist, bucket: "gardinfra-development-recordings"
+
+# PubSub
+config :psb,
+  process_topic: "development-recordings-completion",
+  publish_topic: "development-recordings-creation",
+  project: "gardinfra-development"
+
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20

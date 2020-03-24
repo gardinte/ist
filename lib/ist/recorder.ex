@@ -48,6 +48,26 @@ defmodule Ist.Recorder do
   end
 
   @doc """
+  Gets a single device by UUID.
+
+  Raises `Ecto.NoResultsError` if the Device does not exist.
+
+  ## Examples
+
+      iex> get_device_by_uuid!(%Account{}, "43caacd6-ccc4-439d-97db-4a4883e0eae5")
+      %Device{}
+
+      iex> get_device_by_uuid!(%Account{}, "9c057527-4ac2-433b-9340-cbccc97dd8dd")
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_device_by_uuid!(account, uuid) do
+    Device
+    |> prefixed(account)
+    |> Repo.get_by!(uuid: uuid)
+  end
+
+  @doc """
   Creates a device.
 
   ## Examples
@@ -128,6 +148,7 @@ defmodule Ist.Recorder do
     Recording
     |> prefixed(account)
     |> where(device_id: ^device.id)
+    |> order_by(desc: :started_at)
     |> Repo.paginate(params)
   end
 

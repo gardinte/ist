@@ -35,4 +35,16 @@ defmodule IstWeb.RecordingView do
     |> link(to: path)
     |> safe_to_string()
   end
+
+  def human_size(size) do
+    exponent = (:math.log(abs(size)) / :math.log(1024)) |> Float.floor() |> round
+    result = (size / :math.pow(1024, exponent)) |> Float.round(2)
+    symbol = Enum.at(~w(B KB MB GB TB PB EB ZB YB), exponent)
+
+    "#{result} #{symbol}"
+  end
+
+  def signed_url(recording) do
+    Ist.Recorder.Recording.Sign.signed_url(recording)
+  end
 end

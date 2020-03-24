@@ -17,3 +17,10 @@ config :ist, Ist.Repo,
 config :ist, Ist.Notifications.Mailer,
   adapter: Bamboo.SendGridAdapter,
   api_key: System.fetch_env!("SENDGRID_API_KEY")
+
+config :ist, bucket: System.fetch_env!("BUCKET")
+
+config :psb,
+  process_topic: System.fetch_env!("PUBSUB_PROCESS_TOPIC"),
+  publish_topic: System.fetch_env!("PUBSUB_PUBLISH_TOPIC"),
+  project: System.fetch_env!("PUBSUB_PROJECT")

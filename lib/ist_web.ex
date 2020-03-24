@@ -45,6 +45,7 @@ defmodule IstWeb do
       import IstWeb.ErrorHelpers
       import IstWeb.InputHelpers
       import IstWeb.LinkHelpers
+      import IstWeb.LocalizationHelpers
       import IstWeb.Gettext
     end
   end

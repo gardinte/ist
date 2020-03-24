@@ -15,7 +15,7 @@ msgstr ""
 msgid "Are you sure?"
 msgstr ""
 
-#: lib/ist_web/templates/recording/show.html.eex:33
+#: lib/ist_web/templates/recording/show.html.eex:44
 msgid "Back"
 msgstr ""
 
@@ -28,11 +28,6 @@ msgstr ""
 msgid "Ended at"
 msgstr ""
 
-#: lib/ist_web/templates/recording/index.html.eex:14
-#: lib/ist_web/templates/recording/show.html.eex:13
-msgid "File"
-msgstr ""
-
 #: lib/ist_web/templates/recording/empty.html.eex:5
 msgid "Looks like there is no recordings."
 msgstr ""
@@ -42,7 +37,6 @@ msgid "Or back to %{device_link}"
 msgstr ""
 
 #: lib/ist_web/controllers/recording_controller.ex:53
-#: lib/ist_web/templates/recording/show.html.eex:6
 msgid "Recording"
 msgstr ""
 
@@ -73,4 +67,17 @@ msgstr ""
 
 #: lib/ist_web/views/recording_view.ex:26
 msgid "refresh"
+msgstr ""
+
+#: lib/ist_web/templates/recording/show.html.eex:33
+msgid "Download"
+msgstr ""
+
+#: lib/ist_web/templates/recording/index.html.eex:14
+#: lib/ist_web/templates/recording/show.html.eex:13
+msgid "Size"
+msgstr ""
+
+#: lib/ist_web/templates/recording/show.html.eex:6
+msgid "Recording of %{device}"
 msgstr ""

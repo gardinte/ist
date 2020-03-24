@@ -11,7 +11,7 @@
         <table class="table is-striped is-hoverable is-narrow is-fullwidth">
           <thead>
             <tr>
-              <th><%= dgettext("recordings", "File") %></th>
+              <th><%= dgettext("recordings", "Size") %></th>
               <th><%= dgettext("recordings", "Started at") %></th>
               <th><%= dgettext("recordings", "Ended at") %></th>
 
@@ -21,9 +21,14 @@
           <tbody>
             <%= for recording <- @recordings do %>
               <tr>
-                <td><%= recording.file %></td>
-                <td><%= recording.started_at %></td>
-                <td><%= recording.ended_at %></td>
+                <td>
+                  <span class="icon">
+                    <i class="fas fa-film"></i>
+                  </span>
+                  <span><%= human_size recording.size %></span>
+                </td>
+                <td><%= l @conn, recording.started_at, format: :compact %></td>
+                <td><%= l @conn, recording.ended_at, format: :compact %></td>
 
                 <td>
                   <div class="buttons has-addons is-right">

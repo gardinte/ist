@@ -24,6 +24,9 @@ defmodule IstWeb.RecordingViewTest do
       %Recording{
         id: "1",
         file: "File 1",
+        content_type: "video/mp4",
+        size: 60000,
+        generation: 1,
         started_at: DateTime.utc_now(),
         ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
         device: device,
@@ -32,6 +35,9 @@ defmodule IstWeb.RecordingViewTest do
       %Recording{
         id: "2",
         file: "File 2",
+        content_type: "video/mp4",
+        size: 70000,
+        generation: 1,
         started_at: DateTime.utc_now(),
         ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
         device: device,
@@ -48,7 +54,7 @@ defmodule IstWeb.RecordingViewTest do
       )
 
     for recording <- recordings do
-      assert String.contains?(content, recording.file)
+      assert String.contains?(content, RecordingView.human_size(recording.size))
     end
   end
 
@@ -56,6 +62,9 @@ defmodule IstWeb.RecordingViewTest do
     recording = %Recording{
       id: "1",
       file: "File 1",
+      content_type: "video/mp4",
+      size: 60000,
+      generation: 1,
       started_at: DateTime.utc_now(),
       ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
       device: device,
@@ -69,7 +78,7 @@ defmodule IstWeb.RecordingViewTest do
         recording: recording
       )
 
-    assert String.contains?(content, recording.file)
+    assert String.contains?(content, device.name)
   end
 
   test "refresh link", %{conn: conn, device: device} do
@@ -78,5 +87,12 @@ defmodule IstWeb.RecordingViewTest do
 
   test "device link", %{conn: conn, device: device} do
     assert RecordingView.device_link(conn, device) =~ device.name
+  end
+
+  test "human size" do
+    assert RecordingView.human_size(1024) == "1.0 KB"
+    assert RecordingView.human_size(1024 * 1024) == "1.0 MB"
+    assert RecordingView.human_size(14) == "14.0 B"
+    assert RecordingView.human_size(691_423) == "675.22 KB"
   end
 end

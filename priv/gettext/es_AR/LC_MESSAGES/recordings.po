@@ -15,7 +15,7 @@ msgstr ""
 msgid "Are you sure?"
 msgstr "¿Está seguro de borrar esta grabación?"
 
-#: lib/ist_web/templates/recording/show.html.eex:33
+#: lib/ist_web/templates/recording/show.html.eex:44
 msgid "Back"
 msgstr "Listado de grabaciones"
 
@@ -26,12 +26,7 @@ msgstr "Borrar grabación"
 #: lib/ist_web/templates/recording/index.html.eex:16
 #: lib/ist_web/templates/recording/show.html.eex:21
 msgid "Ended at"
-msgstr "Finalizado"
-
-#: lib/ist_web/templates/recording/index.html.eex:14
-#: lib/ist_web/templates/recording/show.html.eex:13
-msgid "File"
-msgstr "Archivo"
+msgstr "Hasta"
 
 #: lib/ist_web/templates/recording/empty.html.eex:5
 msgid "Looks like there is no recordings."
@@ -42,7 +37,6 @@ msgid "Or back to %{device_link}"
 msgstr "O volver a %{device_link}"
 
 #: lib/ist_web/controllers/recording_controller.ex:53
-#: lib/ist_web/templates/recording/show.html.eex:6
 msgid "Recording"
 msgstr "Grabación"
 
@@ -65,7 +59,7 @@ msgstr "Ver grabación"
 #: lib/ist_web/templates/recording/index.html.eex:15
 #: lib/ist_web/templates/recording/show.html.eex:17
 msgid "Started at"
-msgstr "Inicio"
+msgstr "Desde"
 
 #: lib/ist_web/templates/recording/empty.html.eex:9
 msgid "Wait a bit and %{refresh_link} this page."
@@ -74,3 +68,16 @@ msgstr "Espere un momento y %{refresh_link} esta página."
 #: lib/ist_web/views/recording_view.ex:26
 msgid "refresh"
 msgstr "actualice"
+
+#: lib/ist_web/templates/recording/show.html.eex:33
+msgid "Download"
+msgstr "Descargar"
+
+#: lib/ist_web/templates/recording/index.html.eex:14
+#: lib/ist_web/templates/recording/show.html.eex:13
+msgid "Size"
+msgstr "Tamaño"
+
+#: lib/ist_web/templates/recording/show.html.eex:6
+msgid "Recording of %{device}"
+msgstr "Grabación de %{device}"

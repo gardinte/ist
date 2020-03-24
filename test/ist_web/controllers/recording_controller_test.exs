@@ -29,7 +29,7 @@ defmodule IstWeb.RecordingControllerTest do
       response = html_response(conn, 200)
 
       assert response =~ "Recordings"
-      assert response =~ recording.file
+      assert response =~ IstWeb.RecordingView.human_size(recording.size)
     end
   end
 

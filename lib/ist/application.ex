@@ -11,9 +11,10 @@ defmodule Ist.Application do
       # Start the Ecto repository
       supervisor(Ist.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(IstWeb.Endpoint, [])
+      supervisor(IstWeb.Endpoint, []),
       # Start your own worker by calling: Ist.Worker.start_link(arg1, arg2, arg3)
       # worker(Ist.Worker, [arg1, arg2, arg3]),
+      {Task.Supervisor, name: Ist.PubSub.WorkerSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

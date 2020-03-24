@@ -3,25 +3,36 @@
     <div class="card">
       <header class="card-header">
         <h2 class="card-header-title">
-          <%= dgettext("recordings", "Recording") %>
+          <%= dgettext("recordings", "Recording of %{device}", device: @device.name) %>
         </h2>
       </header>
 
       <div class="card-content">
         <ul>
           <li>
-            <strong><%= dgettext("recordings", "File") %></strong>:
-            <%= @recording.file %>
+            <strong><%= dgettext("recordings", "Size") %></strong>:
+            <%= human_size @recording.size %>
           </li>
           <li>
             <strong><%= dgettext("recordings", "Started at") %></strong>:
-            <%= @recording.started_at %>
+            <%= l @conn, @recording.started_at, format: :compact %>
           </li>
           <li>
             <strong><%= dgettext("recordings", "Ended at") %></strong>:
-            <%= @recording.ended_at %>
+            <%= l @conn, @recording.ended_at, format: :compact %>
           </li>
         </ul>
+
+        <hr>
+
+        <p>
+          <%= link to: signed_url(@recording), class: "button" do %>
+            <span class="icon">
+              <i class="fas fa-download"></i>
+            </span>
+            <span><%= dgettext("recordings", "Download") %></span>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>
