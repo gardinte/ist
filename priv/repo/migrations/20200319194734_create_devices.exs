@@ -14,6 +14,7 @@ defmodule Ist.Repo.Migrations.CreateDevices do
       add :uuid, :string, null: false
       add :name, :string, null: false
       add :description, :text
+      add :status, :string, null: false
       add :url, :text, null: false
       add :lock_version, :integer, default: 1, null: false
 
@@ -22,5 +23,6 @@ defmodule Ist.Repo.Migrations.CreateDevices do
 
     create unique_index(:devices, [:uuid], prefix: prefix)
     create unique_index(:devices, [:name], prefix: prefix)
+    create unique_index(:devices, [:status], prefix: prefix)
   end
 end

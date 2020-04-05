@@ -1,11 +1,13 @@
 defmodule Ist.PubSub.Processor do
   @behaviour Psb.Processor
 
-  alias Ist.PubSub.{Worker, WorkerSupervisor}
+  alias Ist.PubSub.{ProcessorWorker, WorkerSupervisor}
 
   @impl true
   def process(data) do
-    Task.Supervisor.start_child(WorkerSupervisor, Worker, :process, [data], restart: :transient)
+    Task.Supervisor.start_child(WorkerSupervisor, ProcessorWorker, :process, [data],
+      restart: :transient
+    )
 
     {:ok, data}
   end

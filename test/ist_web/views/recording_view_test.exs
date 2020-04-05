@@ -11,6 +11,7 @@ defmodule IstWeb.RecordingViewTest do
       id: "1",
       name: "Camera 1",
       description: "Lobby",
+      status: "unknown",
       url: "rtsp://localhost/camera_1"
     }
 

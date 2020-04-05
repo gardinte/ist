@@ -79,11 +79,12 @@ defmodule Ist.Recorder do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_device(%Session{account: account, user: user}, attrs) do
+  def create_device(%Session{account: account, user: user} = session, attrs) do
     account
     |> Device.changeset(%Device{}, attrs)
     |> Map.put(:repo_opts, prefix: prefix(account))
     |> Trail.insert(prefix: prefix(account), originator: user)
+    |> Device.record(session)
   end
 
   @doc """
@@ -102,6 +103,35 @@ defmodule Ist.Recorder do
     account
     |> Device.changeset(device, attrs)
     |> Trail.update(prefix: prefix(account), originator: user)
+  end
+
+  @doc """
+  Updates a device status.
+
+  ## Examples
+
+      iex> update_device_status!(%Session{}, device, "recording")
+      %Device{}
+
+      iex> update_device_status!(%Session{}, device, "invalid")
+      ** (Ecto.InvalidChangesetError)
+
+  """
+  def update_device_status!(%Session{}, %Device{status: status} = device, status), do: device
+
+  def update_device_status!(%Session{account: account, user: user}, %Device{} = device, status) do
+    result =
+      account
+      |> Device.changeset(device, %{status: status})
+      |> Trail.update(prefix: prefix(account), originator: user)
+
+    case result do
+      {:ok, device} ->
+        device
+
+      {:error, changeset} ->
+        raise Ecto.InvalidChangesetError, action: :update, changeset: changeset
+    end
   end
 
   @doc """
@@ -171,6 +201,27 @@ defmodule Ist.Recorder do
     |> prefixed(account)
     |> where(device_id: ^device.id)
     |> Repo.get!(id)
+  end
+
+  @doc """
+  Gets a single recording by UUID.
+
+  Returns nil if the Recording does not exist.
+
+  ## Examples
+
+      iex> get_recording(%Account{}, %Device{}, "43caacd6-ccc4-439d-97db-4a4883e0eae5")
+      %Recording{}
+
+      iex> get_recording(%Account{}, %Device{}, "9c057527-4ac2-433b-9340-cbccc97dd8dd")
+      nil
+
+  """
+  def get_recording(account, device, uuid) do
+    Recording
+    |> prefixed(account)
+    |> where(device_id: ^device.id)
+    |> Repo.get_by(uuid: uuid)
   end
 
   @doc """

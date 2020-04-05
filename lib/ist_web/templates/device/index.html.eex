@@ -12,7 +12,7 @@
           <thead>
             <tr>
               <th><%= dgettext("devices", "Name") %></th>
-              <th><%= dgettext("devices", "URL") %></th>
+              <th><%= dgettext("devices", "Status") %></th>
 
               <th></th>
             </tr>
@@ -21,7 +21,7 @@
             <%= for device <- @devices do %>
               <tr>
                 <td><%= device.name %></td>
-                <td><%= device.url %></td>
+                <td><%= status device %></td>
 
                 <td>
                   <div class="buttons has-addons is-right">

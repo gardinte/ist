@@ -5,16 +5,18 @@ defmodule IstWeb.DeviceControllerTest do
   import Ist.Support.FixtureHelper
 
   @create_attrs %{
-    description: "some description",
     name: "some name",
+    description: "some description",
+    status: "unknown",
     url: "rtsp://localhost/device"
   }
   @update_attrs %{
-    description: "some updated description",
     name: "some updated name",
+    description: "some updated description",
+    status: "starting",
     url: "rtsp://localhost/updated_device"
   }
-  @invalid_attrs %{description: nil, name: nil, url: nil}
+  @invalid_attrs %{name: nil, description: nil, status: nil, url: nil}
 
   describe "unauthorized access" do
     test "requires user authentication on all actions", %{conn: conn} do

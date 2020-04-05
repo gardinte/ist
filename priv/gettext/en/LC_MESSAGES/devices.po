@@ -16,11 +16,11 @@ msgid "Are you sure?"
 msgstr ""
 
 #: lib/ist_web/templates/device/edit.html.eex:22
-#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:41
+#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:43
 msgid "Back"
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:50
+#: lib/ist_web/views/device_view.ex:72
 msgid "Create"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: lib/ist_web/templates/device/show.html.eex:31
+#: lib/ist_web/templates/device/show.html.eex:33
 #: lib/ist_web/views/device_view.ex:17
 msgid "Edit"
 msgstr ""
@@ -91,15 +91,38 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: lib/ist_web/views/device_view.ex:51
+#: lib/ist_web/views/device_view.ex:73
 msgid "Update"
 msgstr ""
 
 #: lib/ist_web/templates/device/_form.html.eex:10
-#: lib/ist_web/templates/device/index.html.eex:15
 msgid "URL"
 msgstr ""
 
-#: lib/ist_web/templates/device/show.html.eex:26
+#: lib/ist_web/templates/device/show.html.eex:28
 msgid "Show recordings"
+msgstr ""
+
+#: lib/ist_web/templates/device/index.html.eex:15
+msgid "Status"
+msgstr ""
+
+#: lib/ist_web/views/device_view.ex:56
+msgid "Failing"
+msgstr ""
+
+#: lib/ist_web/views/device_view.ex:55
+msgid "Recording"
+msgstr ""
+
+#: lib/ist_web/views/device_view.ex:54
+msgid "Starting"
+msgstr ""
+
+#: lib/ist_web/views/device_view.ex:57
+msgid "Stopped"
+msgstr ""
+
+#: lib/ist_web/views/device_view.ex:53
+msgid "Unknown"
 msgstr ""

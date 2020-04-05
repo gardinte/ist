@@ -7,9 +7,10 @@ defmodule Ist.Recorder.DeviceTest do
     @valid_attrs %{
       name: "some name",
       descriptor: "some description",
+      status: "unknown",
       url: "rtsp://localhost/device"
     }
-    @invalid_attrs %{logo: nil, name: nil, description: nil, url: nil}
+    @invalid_attrs %{logo: nil, name: nil, description: nil, status: nil, url: nil}
 
     test "changeset with valid attributes" do
       changeset = test_account() |> Device.changeset(%Device{}, @valid_attrs)

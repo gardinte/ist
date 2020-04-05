@@ -11,6 +11,7 @@ defmodule Ist.Repo.Migrations.CreateRecordings do
 
   defp do_change(prefix) do
     create table(:recordings, prefix: prefix) do
+      add :uuid, :string, null: false
       add :file, :string, null: false
       add :content_type, :string, null: false
       add :size, :bigint, null: false
@@ -22,6 +23,7 @@ defmodule Ist.Repo.Migrations.CreateRecordings do
       timestamps type: :utc_datetime
     end
 
+    create unique_index(:recordings, [:uuid], prefix: prefix)
     create index(:recordings, [:started_at], prefix: prefix)
     create index(:recordings, [:device_id], prefix: prefix)
   end

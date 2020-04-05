@@ -5,6 +5,7 @@ defmodule Ist.Recorder.RecordingTest do
     alias Ist.Recorder.Recording
 
     @valid_attrs %{
+      uuid: Ecto.UUID.generate(),
       file: "some file",
       content_type: "video/mp4",
       size: 60000,
@@ -13,7 +14,14 @@ defmodule Ist.Recorder.RecordingTest do
       ended_at: DateTime.utc_now() |> DateTime.add(10 * 60, :second),
       device_id: "1"
     }
-    @invalid_attrs %{file: nil, content_type: nil, size: nil, generation: nil, started_at: nil, ended_at: nil}
+    @invalid_attrs %{
+      file: nil,
+      content_type: nil,
+      size: nil,
+      generation: nil,
+      started_at: nil,
+      ended_at: nil
+    }
 
     test "changeset with valid attributes" do
       changeset = test_account() |> Recording.changeset(%Recording{}, @valid_attrs)

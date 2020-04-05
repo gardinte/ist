@@ -12,6 +12,9 @@ config :ist, IstWeb.Gettext, default_locale: "en"
 # Bamboo test adapter
 config :ist, Ist.Notifications.Mailer, adapter: Bamboo.TestAdapter
 
+# Notifier dummy
+config :ist, notifier: Ist.PubSub.Notifiers.Dummy
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
@@ -25,6 +28,9 @@ config :ist, Ist.Repo,
 
 # Recording's bucket
 config :ist, bucket: "gardinfra-development-testing"
+
+# Wait on error time (in seconds)
+config :ist, :wait_time_on_error, 0.001
 
 # Argon
 config :argon2_elixir,

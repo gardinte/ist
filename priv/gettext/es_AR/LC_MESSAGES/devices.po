@@ -16,11 +16,11 @@ msgid "Are you sure?"
 msgstr "¿Está seguro de borrar este dispositivo?"
 
 #: lib/ist_web/templates/device/edit.html.eex:22
-#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:41
+#: lib/ist_web/templates/device/new.html.eex:22 lib/ist_web/templates/device/show.html.eex:43
 msgid "Back"
 msgstr "Listado de dispositivos"
 
-#: lib/ist_web/views/device_view.ex:50
+#: lib/ist_web/views/device_view.ex:72
 msgid "Create"
 msgstr "Crear nuevo dispositivo"
 
@@ -54,7 +54,7 @@ msgstr "Dispositivo actualizado correctamete."
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: lib/ist_web/templates/device/show.html.eex:31
+#: lib/ist_web/templates/device/show.html.eex:33
 #: lib/ist_web/views/device_view.ex:17
 msgid "Edit"
 msgstr "Editar dispositivo"
@@ -91,15 +91,38 @@ msgstr "Oops, algo salió mal, por favor verifique los errores debajo."
 msgid "Show"
 msgstr "Ver dispositivo"
 
-#: lib/ist_web/views/device_view.ex:51
+#: lib/ist_web/views/device_view.ex:73
 msgid "Update"
 msgstr "Actualizar dispositivo"
 
 #: lib/ist_web/templates/device/_form.html.eex:10
-#: lib/ist_web/templates/device/index.html.eex:15
 msgid "URL"
 msgstr "URL"
 
-#: lib/ist_web/templates/device/show.html.eex:26
+#: lib/ist_web/templates/device/show.html.eex:28
 msgid "Show recordings"
 msgstr "Ver grabaciones"
+
+#: lib/ist_web/templates/device/index.html.eex:15
+msgid "Status"
+msgstr "Estado"
+
+#: lib/ist_web/views/device_view.ex:56
+msgid "Failing"
+msgstr "Fallando"
+
+#: lib/ist_web/views/device_view.ex:55
+msgid "Recording"
+msgstr "Grabando"
+
+#: lib/ist_web/views/device_view.ex:54
+msgid "Starting"
+msgstr "Inicializando"
+
+#: lib/ist_web/views/device_view.ex:57
+msgid "Stopped"
+msgstr "Detenido"
+
+#: lib/ist_web/views/device_view.ex:53
+msgid "Unknown"
+msgstr "Desconocido"

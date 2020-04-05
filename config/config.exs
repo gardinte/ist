@@ -23,6 +23,9 @@ config :ist, IstWeb.Gettext, default_locale: "es_AR"
 # Ecto timestamps
 config :ist, Ist.Repo, migration_timestamps: [type: :utc_datetime]
 
+# Notifier
+config :ist, notifier: Ist.PubSub.Notifiers.Psb
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

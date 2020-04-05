@@ -12,22 +12,28 @@ defmodule Ist.Recorder.Device do
     field :uuid, :string
     field :name, :string
     field :description, :string
+    field :status, :string
     field :url, :string
     field :lock_version, :integer, default: 1
 
     timestamps type: :utc_datetime
   end
 
+  @statuses ~w(unknown starting recording failing stopped)
+
   @doc false
   def changeset(%Account{} = account, %Device{} = device, attrs) do
     device
     |> put_uuid()
+    |> put_status()
     |> put_prefix(account)
-    |> cast(attrs, [:uuid, :name, :description, :url, :lock_version])
-    |> validate_required([:uuid, :name, :url])
+    |> cast(attrs, [:uuid, :name, :description, :status, :url, :lock_version])
+    |> validate_required([:uuid, :name, :url, :status])
     |> validate_length(:name, max: 255)
     |> validate_length(:uuid, max: 255)
+    |> validate_length(:status, max: 255)
     |> validate_length(:url, max: 2047)
+    |> validate_inclusion(:status, @statuses)
     |> validate_url(:url)
     |> unsafe_validate_unique(:name, Repo, prefix: prefix(account))
     |> unsafe_validate_unique(:uuid, Repo, prefix: prefix(account))
@@ -36,11 +42,24 @@ defmodule Ist.Recorder.Device do
     |> optimistic_lock(:lock_version)
   end
 
+  def record({:ok, device}, session) do
+    Ist.PubSub.Notifier.notify(session, device)
+    Ist.Recorder.update_device(session, device, %{status: "starting"})
+  end
+
+  def record(result, _session), do: result
+
   defp put_uuid(%Device{uuid: nil} = device) do
     device |> Map.put(:uuid, Ecto.UUID.generate())
   end
 
   defp put_uuid(device), do: device
+
+  defp put_status(%Device{status: nil} = device) do
+    device |> Map.put(:status, "unknown")
+  end
+
+  defp put_status(device), do: device
 
   defp put_prefix(%Device{__meta__: %{prefix: nil}} = device, %Account{} = account) do
     meta = device.__meta__ |> Map.put(:prefix, prefix(account))

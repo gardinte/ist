@@ -7,6 +7,7 @@ defmodule Ist.Recorder.DeviceRepoTest do
     @valid_attrs %{
       name: "some name",
       descriptor: "some description",
+      status: "unknown",
       url: "rtsp://localhost/device"
     }
 

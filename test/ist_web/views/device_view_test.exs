@@ -6,13 +6,26 @@ defmodule IstWeb.DeviceViewTest do
   alias Ist.Recorder.Device
 
   import Phoenix.View
+  import Phoenix.HTML, only: [safe_to_string: 1]
 
   test "renders index.html", %{conn: conn} do
     page = %Scrivener.Page{total_pages: 1, page_number: 1}
 
     devices = [
-      %Device{id: "1", name: "Camera 1", description: "Lobby", url: "rtsp://localhost/camera_1"},
-      %Device{id: "2", name: "Camera 2", description: nil, url: "rtsp://localhost/camera_2"}
+      %Device{
+        id: "1",
+        name: "Camera 1",
+        description: "Lobby",
+        status: "recording",
+        url: "rtsp://localhost/camera_1"
+      },
+      %Device{
+        id: "2",
+        name: "Camera 2",
+        description: nil,
+        status: "starting",
+        url: "rtsp://localhost/camera_2"
+      }
     ]
 
     content = render_to_string(DeviceView, "index.html", conn: conn, devices: devices, page: page)
@@ -34,6 +47,7 @@ defmodule IstWeb.DeviceViewTest do
       id: "1",
       name: "Camera 1",
       description: "Lobby",
+      status: "recording",
       url: "rtsp://localhost/camera_1"
     }
 
@@ -54,6 +68,7 @@ defmodule IstWeb.DeviceViewTest do
       id: "1",
       name: "Camera 1",
       description: "Lobby",
+      status: "recording",
       url: "rtsp://localhost/camera_1"
     }
 
@@ -66,6 +81,22 @@ defmodule IstWeb.DeviceViewTest do
     assert DeviceView.show_description?(%Device{description: "test"})
     refute DeviceView.show_description?(%Device{description: nil})
     refute DeviceView.show_description?(%Device{description: " \n "})
+  end
+
+  test "status" do
+    device = %Device{
+      id: "1",
+      name: "Camera 1",
+      description: "Lobby",
+      status: "recording",
+      url: "rtsp://localhost/camera_1"
+    }
+
+    content = device |> DeviceView.status() |> safe_to_string()
+
+    assert content =~ "Recording"
+    assert content =~ "is-success"
+    assert content =~ "is-normal"
   end
 
   defp test_account do

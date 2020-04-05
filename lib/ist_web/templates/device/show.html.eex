@@ -18,6 +18,8 @@
             <%= text_to_html @device.description %>
           </div>
         <% end %>
+
+        <%= status @device, "is-medium" %>
       </div>
 
       <footer class="card-footer">

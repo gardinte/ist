@@ -5,6 +5,7 @@ defmodule Ist.Support.Fixtures.RecordingFixture do
   defmacro __using__(_opts) do
     quote do
       @recording_attrs %{
+        uuid: Ecto.UUID.generate(),
         file: "some file",
         content_type: "video/mp4",
         size: 60000,

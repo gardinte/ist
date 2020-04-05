@@ -6,8 +6,10 @@ defmodule Ist.Recorder.Recording do
 
   alias Ist.Recorder.{Device, Recording}
   alias Ist.Accounts.Account
+  alias Ist.Repo
 
   schema "recordings" do
+    field :uuid, :string
     field :file, :string
     field :content_type, :string
     field :size, :integer
@@ -20,14 +22,28 @@ defmodule Ist.Recorder.Recording do
     timestamps type: :utc_datetime
   end
 
+  @cast_attrs [
+    :uuid,
+    :file,
+    :content_type,
+    :size,
+    :generation,
+    :started_at,
+    :ended_at,
+    :device_id
+  ]
+
   @doc false
   def changeset(%Account{} = account, %Recording{} = recording, attrs) do
     recording
     |> put_prefix(account)
-    |> cast(attrs, [:file, :content_type, :size, :generation, :started_at, :ended_at, :device_id])
-    |> validate_required([:file, :content_type, :size, :generation, :started_at, :ended_at, :device_id])
+    |> cast(attrs, @cast_attrs)
+    |> validate_required(@cast_attrs)
+    |> validate_length(:uuid, max: 255)
     |> validate_length(:file, max: 255)
     |> validate_length(:content_type, max: 255)
+    |> unsafe_validate_unique(:uuid, Repo, prefix: prefix(account))
+    |> unique_constraint(:uuid)
     |> assoc_constraint(:device)
   end
 

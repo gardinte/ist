@@ -47,6 +47,28 @@ defmodule IstWeb.DeviceView do
     String.trim(description) != ""
   end
 
+  def status(device, size_class \\ "is-normal") do
+    status_text =
+      %{
+        "unknown" => dgettext("devices", "Unknown"),
+        "starting" => dgettext("devices", "Starting"),
+        "recording" => dgettext("devices", "Recording"),
+        "failing" => dgettext("devices", "Failing"),
+        "stopped" => dgettext("devices", "Stopped")
+      }[device.status]
+
+    tag_class =
+      %{
+        "unknown" => "is-light",
+        "starting" => "is-info",
+        "recording" => "is-success",
+        "failing" => "is-danger",
+        "stopped" => "is-dark"
+      }[device.status]
+
+    content_tag(:span, status_text, class: "tag #{tag_class} #{size_class}")
+  end
+
   defp submit_label(nil), do: dgettext("devices", "Create")
   defp submit_label(_), do: dgettext("devices", "Update")
 end
