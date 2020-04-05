@@ -8,13 +8,13 @@ FROM elixir:alpine AS build
 ARG APP_HOME
 ENV MIX_ENV test
 
-RUN apk add --update --no-cache build-base yarn
+RUN apk add --update --no-cache build-base git yarn
 
 RUN mkdir -p $APP_HOME
 
 WORKDIR $APP_HOME
 
-ADD . $APP_HOME
+COPY . $APP_HOME
 
 RUN mix local.hex --force && mix local.rebar --force && mix deps.get && mix compile
 
