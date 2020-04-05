@@ -66,6 +66,21 @@ spec:
                 configMapKeyRef:
                   key: bucket
                   name: gardinte-app-config
+            - name: PUBSUB_PROCESS_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  key: processTopic
+                  name: gardinte-app-config
+            - name: PUBSUB_PUBLISH_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  key: publishTopic
+                  name: gardinte-app-config
+            - name: PUBSUB_PROJECT
+              valueFrom:
+                configMapKeyRef:
+                  key: project
+                  name: gardinte-app-config
       volumes:
         - name: nginx-config-volume
           configMap:
