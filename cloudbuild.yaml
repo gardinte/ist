@@ -1,8 +1,8 @@
 steps:
 
-- id: 'Test'
-  name: 'gcr.io/$PROJECT_ID/docker-compose'
-  args: ['run', '-T', 'app', 'test']
+# - id: 'Test'
+#   name: 'docker/compose:latest'
+#   args: ['run', '-T', 'app', 'test']
 
 - id: 'Build'
   name: 'gcr.io/cloud-builders/docker'
