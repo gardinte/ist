@@ -10,6 +10,8 @@ LABEL stage=intermediate
 ARG APP_HOME
 ENV MIX_ENV prod
 
+RUN apk add --update --no-cache git
+
 RUN mkdir -p $APP_HOME
 
 WORKDIR $APP_HOME
